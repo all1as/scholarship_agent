@@ -7,7 +7,8 @@
 - `docs/design_doc.md` — design doc проекта.
 - `docs/spike_kt2.md` — проверка источников данных и LLM-извлечения перед КТ2.
 - `spike/` — скрипты спайка.
-- `eval/` — eval-сет и эталонная разметка.
+- `eval/` — eval-сет, эталонная разметка и скрипты (снимки страниц, проверка меток, согласие разметчиков, отложенная часть).
+- `docs/annotation_guide.md` — инструкция разметчика; `docs/annotator_b_prompt.md` — промпт для второго разметчика.
 
 ## Разметка eval-сета
 
@@ -22,6 +23,6 @@
 
 ```bash
 uv venv .venv
-uv pip install --python .venv httpx trafilatura python-dotenv tavily-python openai
+uv pip install --python .venv -r requirements.txt
 cp .env.example .env  # и заполнить ключи
 ```
