@@ -3,3 +3,6 @@
 __pycache__/
 spike/out/
 eval/gt/labels_heldout.jsonl
+eval/gt/heldout_bundle.jsonl
+eval/queries/queries_draft.json
+eval/gt/duplicates_heldout.jsonl
