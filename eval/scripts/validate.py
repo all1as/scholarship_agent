@@ -1,4 +1,4 @@
-"""Проверка меток A2: JSON-схема, соответствие формата даты точности, цитаты есть в снимках.
+﻿"""Проверка меток A2: JSON-схема, соответствие формата даты точности, цитаты есть в снимках.
 
 Запуск: python eval/scripts/validate.py eval/gt/labels_a.jsonl
 """
@@ -62,7 +62,7 @@ def main() -> None:
     sys.stdout.reconfigure(encoding="utf-8")
     path = Path(sys.argv[1] if len(sys.argv) > 1 else ROOT / "eval" / "gt" / "labels_a.jsonl")
     ids, bad = set(), 0
-    for line_no, line in enumerate(path.read_text(encoding="utf-8").splitlines(), 1):
+    for line_no, line in enumerate(path.read_text(encoding="utf-8-sig").splitlines(), 1):
         if not line.strip():
             continue
         label = json.loads(line)

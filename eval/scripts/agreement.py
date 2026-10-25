@@ -1,4 +1,4 @@
-"""Согласие разметчиков A и B на подвыборке (design doc, раздел 7.4).
+﻿"""Согласие разметчиков A и B на подвыборке (design doc, раздел 7.4).
 
 - дедлайны подачи: совпадение множеств (дата, точность, область) по стипендии;
 - статус цикла и open_to_ru: κ Коэна;
@@ -16,7 +16,7 @@ GT = ROOT / "eval" / "gt"
 
 
 def load(name: str) -> dict[str, dict]:
-    labels = (json.loads(line) for line in (GT / name).read_text(encoding="utf-8").splitlines() if line.strip())
+    labels = (json.loads(line) for line in (GT / name).read_text(encoding="utf-8-sig").splitlines() if line.strip())
     return {label["id"]: label for label in labels}
 
 
