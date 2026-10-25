@@ -74,7 +74,7 @@
           "properties": {
             "value": {"type": ["number", "null"]},
             "currency": {"type": ["string", "null"], "pattern": "^[A-Z]{3}$"},
-            "period": {"enum": ["month", "year", "total", null]},
+            "period": {"enum": ["month", "semester", "year", "total", null]},
             "full_coverage": {"type": ["boolean", "null"]},
             "variants": {"type": ["string", "null"]},
             "quote": {"$ref": "#/$defs/quote"},
