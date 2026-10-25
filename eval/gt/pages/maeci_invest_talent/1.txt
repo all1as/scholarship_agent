@@ -1,17 +1,64 @@
-Il traffico verso questo servizio è stato classificato come potenzialmente automatizzato. Per motivi di sicurezza, è richiesta una verifica aggiuntiva.
-Your traffic to this service was classified as potentially automated. For security reasons, an additional verification step is required.
-Incident ID: 143481b3-dcxq-42a9-9ba2-68b26cb1db93
-Cosa puoi fare
-Completa il CAPTCHA per richiedere lo sblocco, poi riprova ad accedere.
-- Se stai usando VPN o Proxy, disattivali e riprova.
-- Se sei su una rete condivisa, potrebbe esserci stata attività malevola precedente sulla stessa uscita Internet.
-- Se ritieni che sia un errore, contatta il supporto indicando l’Incident ID.
-What you can do
-Complete the CAPTCHA to request an unblock, then try again.
-- If you are using a VPN or Proxy, disable it and retry.
-- If you are on a shared network, there may have been previous malicious activity from the same Internet egress.
-- If you believe this is an error, contact support and provide the Incident ID.
-Verifica CAPTCHA
-Inserisci la verifica richiesta per procedere.
-CAPTCHA verification
-Please complete the required verification to continue.
+This site uses technical (necessary) and analytics cookies.   
+By continuing to browse, you agree to the use of cookies.
+
+[Go to content](#primary)
+
+[Italian Government](https://www.governo.it/ "Go to the Italian Government's website")
+
+* [IT](https://www.esteri.it/it/servizi-opportunita/opportunita/borse-di-studio/per-cittadini-stranieri/progetti-speciali/invest-your-talent-in-italy/ "Switch to IT")
+* [EN](https://www.esteri.it/en/servizi-opportunita/opportunita/borse-di-studio/per-cittadini-stranieri/progetti-speciali/invest-your-talent-in-italy/)
+
+## Header, social and menu of the website
+
+[![Logo Ministero degli Affari Esteri e della Cooperazione Internazionale](https://www.esteri.it/wp-content/themes/mae/assets/img/logo-mae.png) 
+
+Ministero degli Affari Esteri  
+ e della Cooperazione Internazionale
+
+Ministero degli Affari Esteri e della Cooperazione Internazionale](https://www.esteri.it/en/)
+
+Follow us:
+
+
+
+
+
+* [![Podcast](https://www.esteri.it/wp-content/themes/mae/assets//img/icona-podcast.svg)](https://www.spreaker.com/user/italymfa)
+
+Search on the website
+
+[Share on Facebook](https://www.facebook.com/sharer/sharer.php?u=https://www.esteri.it/en/servizi-opportunita/opportunita/borse-di-studio/per-cittadini-stranieri/progetti-speciali/invest-your-talent-in-italy/ "Share on Facebook")   [Share on Twitter](https://twitter.com/intent/tweet?url=https://www.esteri.it/en/servizi-opportunita/opportunita/borse-di-studio/per-cittadini-stranieri/progetti-speciali/invest-your-talent-in-italy/ "Share on Twitter")   [Share on WhatsApp](https://api.whatsapp.com/send?text=https://www.esteri.it/en/servizi-opportunita/opportunita/borse-di-studio/per-cittadini-stranieri/progetti-speciali/invest-your-talent-in-italy/ "Share on WhatsApp")
+
+Share  [Share on Social Network](# "Share on Social Network")
+
+# Invest your talent in Italy
+
+**Welcome to the** *Invest Your Talent in Italy* **Program**
+
+The “Invest Your Talent in Italy” program aims at promoting the internationalization of the Italian university system as a center of excellence by giving foreign students opportunities for a fulfilling educational path and successful future careers. The program offers the possibility to develop academic, technical and professional skills through a range of Master’s and Postgraduate courses in Engineering/Advanced Technologies, Architecture/Design, Economics and Management and on-the-job trainings at Italian companies. 
+
+The top Italian universities, participating in the program, offer courses held entirely in English, with the aim of boosting job prospects in a competitive landscape. The selected grantees will receive a nine-month scholarship as a contribution to their Italian experience.
+
+**We want to reward your talent and***Invest Your Talent in Italy***is the right way to do it!**
+
+**Applications for the 2026–2027 academic year are now open!** The deadline for applications is **May 11th at 6.00 pm** (Italian time).
+
+**Find out more at** <https://investyourtalentapplication.esteri.it/SitoIYT/EN/invest-your-talent-in-italy>
+
+
+
+## Customise consent preferences
+
+We use cookies to help you navigate efficiently and perform certain functions. You will find detailed information on all cookies under each consent category below.
+
+“Necessary” cookies are technical cookies stored in your browser as they are essential for enabling the basic functions of the website.
+
+We also use analytics cookies to collect information, in aggregate form, about the number of users visiting the site and how they interact with it. In order to respect the privacy of our users, the IP addresses of those who browse the website are made anonymous.
+
+You can choose whether to enable or disable analytics cookies.
+
+Strictly necessary cookies are required to enable the basic features of the website. Without them the site cannot function properly. These cookies do not store personally identifiable information.
+
+Analytics cookies are used to understand how users interact with the website. These cookies help provide information on metrics such as the number of visitors, bounce rate, traffic source, etc. The IP addresses of those who browse the website are made anonymous.
+
+ 
