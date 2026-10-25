@@ -1,0 +1,82 @@
+This page describes the different components of an application for the U.S. National Science Foundation Graduate Research Fellowship Program (NSF GRFP).
+You will prepare and submit your application in the GRFP Application Module on Research.gov. The module usually opens in July or August. To access the module, you will need to create a Research.gov account (if you do not already have one).
+On this page
+Personal information
+You must provide accurate personal information. Required information includes:
+- Full name (Your legal name).
+- Mailing address.
+- Permanent address.
+- Date of birth.
+- High school location.
+- Demographic information.
+Level selection
+You must select one of the following options in your application:
+Level 1 (Undergraduate)
+- Undergraduate students in the final year of a bachelor's degree program.
+- Bachelor's degree holders with no prior graduate degree enrollment.
+Level 2 (Graduate)
+- Joint bachelor's-master's degree students in final undergraduate or first graduate year.
+- First-year graduate students in their first graduate degree program.
+Education, work, and other experience
+Provide your education and work experience. You will need to include:
+- The list of institutions, enrollment status, enrollment dates, and degree conferred (if applicable) for all degree-granting undergraduate and graduate institutions you have attended.
+- Transcripts with your most recent academic status. Official undergraduate academic transcripts are required. Graduate transcripts may be unofficial if the institution of higher education does not provide official transcripts for first-year, first academic-term graduate students.
+- Significant academic honors, fellowships, scholarships, publications, and presentations.
+Note: Your official transcripts should be uploaded in PDF format.
+Proposed field(s) of study
+Your Major Field of Study determines your application deadline as well as who reviews your application.
+Your application is due at 8:00 p.m. Eastern time on the due date corresponding with the Major Field of Study you select.
+Reference letter information
+The GRFP Application Module allows you to request up to five reference letters and to rank those reference letters in order of preference for review. If more than three reference letters are received, the top three will be considered for the application
+- Required: Three reference writer names and contact information.
+- Required: Two reference letters must be received by NSF.
+Family members cannot be reference writers.
+For each reference, enter the following information in the GRFP Application Module:
+- Name.
+- Organizational affiliation.
+- Email address.
+- Rank order of preference for review.
+Reference writers will be notified by email of the request to submit a letter of reference, along with instructions.
+Please coordinate with your reference writers in advance: reference letters are due before the NSF GRFP application deadlines. All reference letters are due by 8:00 p.m. Eastern time on the reference letter date outlined in the NSF GRFP Notice of Funding Opportunity.
+Personal, Relevant Background, and Future Goals and Graduate Research Plan statements
+Personal, Relevant Background, and Future Goals Statement
+Outline your educational and professional development plans and career goals. Describe how you envision graduate school preparing you for a career in STEM, including how your experiences could contribute to scientific understanding and broadly benefit society.
+You must include headings for Intellectual Merit and Broader Impacts in your statement.
+Maximum length: Three pages.
+Use the template below to assist you with writing and formatting your statement.
+Graduate Research Plan Statement
+Present an original research topic you would like to pursue in graduate school. Your statement should include:
+- The research idea and proposed approach.
+- Resources needed.
+- Potential to advance knowledge in your field (Intellectual Merit).
+- Potential to benefit society (Broader Impacts).
+You must include headings for Intellectual Merit and Broader Impacts in your statement.
+Maximum length: Two pages.
+The template below includes additional information and can assist you with formatting your statement.
+Statement formatting requirements
+Page limits
+- Personal, Relevant Background, and Future Goals: Three pages.
+- Graduate Research Plan: Two pages.
+- These page limits include all references, citations, charts, figures, images, and lists of publications and presentations.
+Page size and margins
+- Use a standard 8.5" x 11" page size.
+- Use 1" margins on all sides, with no text inside the 1" margins (no header, footer, name, or page number).
+Fonts
+- Use Arial (not Arial Narrow), Courier New, or Palatino Linotype in 10-point or larger font; Times New Roman or Computer Modern family, 11-point or larger font.
+- Symbol or Cambria Math fonts are accepted for Greek letters or special characters.
+- Smaller than 10-point fonts are accepted for mathematical formulas, equations, figures, tables, or diagram captions.
+Spacing
+Use no less than single-spacing (approximately 6 lines per inch). Do not use line spacing options such as "exactly 11 point," that are less than single spaced.
+File format
+PDF format only.
+Equations and symbols
+It is recommended that equations and symbols be inserted as an image.
+Additional guidance
+- Provide descriptive alternative text ("alt text") for all images, graphs, and charts.
+- Use sufficient color contrast for text and graphics in machine readable/accessible electronic format to ensure legibility and readability for individuals with visual impairments.
+Statement tips
+- Keep in mind that NSF does not just seek to fund scientists and engineers; NSF seeks to fund future STEM leaders. Use the statements to show leadership potential, self-starter capabilities, and the ability to work well with others (scientists, students, people in the community, etc.). Show passion, motivation for a STEM career, and initiative in your past research and other experiences.
+- Be yourself. An application that conveys a clear sense of who you are as a person, with a narrative that has energy and flow, will generally be better received than an application that is impersonal and flat. Remember that the NSF GRFP recognizes individuals based on their demonstrated potential for significant achievements in science and engineering. That is, the potential of individuals is evaluated, not just the proposed research.
+- Use appropriate scientific form. Use hypotheses, figures, and references in the Graduate Research Statement.
+- Don't get bogged down in specifics, or be overly technical. Instead of elaborate details on theory, focus on the rationale for your studies and the existing literature as it supports your proposed work. While reviewers will generally be knowledge experts in your general field, they probably will not be experts in your specific proposed research topic.
+- Develop a consistent theme in both statements. Weave together your personal story with your academic and career plans and past experiences to make a compelling case why NSF should offer you the fellowship. The decision will be based on your demonstrated potential for significant achievements in science and engineering. Keep in mind that reviewers will read your complete application package.

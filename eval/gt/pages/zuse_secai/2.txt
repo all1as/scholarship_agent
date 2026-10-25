@@ -1,0 +1,106 @@
+SECAI Scholarships for Master and Diplom Students in AI
+30 Jun 2026
+1 Objective
+The School of Embedded Composite AI (SECAI) offers scholarships to support M.Sc. students and advanced 
+students in a German Diplom program whose studies are related to the topical focus of SECAI. The  
+scholarships are intended to support particularly qualified applicants, and to a lesser extent also to  
+promote internationalization and diversity of AI-related teaching programmes at TU Dresden and Leipzig  
+University.
+2 Eligibility
+Candidates are eligible to apply to this programme if they will meet all of the following criteria for the  
+whole duration of the scholarship:
+ the content of their studies, chosen specialization, or topic of the project work planned under the 
+scholarship is closely related to the research areas of SECAI;
+ they are students in an M.Sc. program, or students in a Diplom program where they have  
+successfully completed the first two years of Diplom studies (Grundstudium);
+ they are students of TU Dresden or Leipzig University, or they are visiting a research group at TU  
+Dresden or Leipzig University;
+ they do not receive other scholarships or educational funding from public or private organizations.
+It is possible to apply if some of the above criteria are not met (yet), but are expected to be met at the time 
+when the scholarship would start. It is a prerequisite for receiving a scholarship that candidates continue 
+to satisfy the above eligibility criteria.
+3 Duration & Extent of Funding
+The maximal duration for which a scholarship can initially be awarded is subject to the following upper  
+limits:
+ for scholarships related to concrete study projects (including the completion of a thesis): the  
+regular time required for such a project according to study regulations;
+ for scholarships granted to visiting students: the duration of the stay at TU Dresden or Leipzig  
+University;
+ for any other scholarships of students at TU Dresden or Leipzig University: the remaining duration 
+of the recipient’s M.Sc. or Diplom studies according to the model study plan (“Regelstudienzeit”).
+Shorter scholarship durations can be determined by the Selection Committee based on available budget  
+and  the  specific  study  situation  and  progress  of  the  candidate.  If  the  prerequisites  for  receiving  a 
+scholarship are no longer satisfied (see Eligibility), then the scholarship will end immediately.
+The time of a scholarship can be extended upon request. The Selection Committee decides on such  
+requests.
+The monthly grant consists of a scholarship rate of EUR 934 for M.Sc. students. Any extra income must be 
+declared, and the scholarship may be reduced by the amount of gross income exceeding EUR 603. For  
+incomplete months, a daily rate of 31 EUR is applied. Short-term visits of at most 22 days by foreign  
+students are funded at a daily rate of 42 EUR.
+Foreign students who stay for more than six months may be entitled to a monthly family allowance as  
+follows:
+ 276 EUR for their accompanying spouse who is not supported by other programs, private or  
+public;
+ 219 EUR for the first and second accompanying child, 225 EUR for the third accompanying child,  
+250 EUR for each further accompanying child, where only children are considered for which the  
+applicant has no legal claim to public benefits (Kindergeld).
+The daily allowance for incomplete months is 1/30th of the monthly allowance.
+The scholarship does not include any other kind of funding. In particular, recipients still have to cover  
+insurance costs and study fees.
+4 Selection Procedure
+A  Selection  Committee  consisting  of  SECAI  Fellows  reviews  and  decides  on  the  applications.  The 
+scholarships are awarded in a competitive process, based on the reviewed application documents and an 
+interview. The Selection Committee can reject applications without an interview. For ranking applications 
+in specific calls, the Selection Committee may decide to use an internal scoring system for applicants.
+Interviews are conducted by at least two reviewers appointed by the Selection Committee, of which at  
+least one must be a member of that committee. Interviews can be personal meetings or video calls, where 
+the latter should be preferred for remote candidates.
+The  Selection  Committee  strives  to  ensure  that  the  selection  process  is  free  of  discrimination.  For 
+example, applicants with disabilities or chronic diseases must not be disadvantaged. Other personal  
+circumstances should also be taken into account, including, e.g., family care duties, past or current  
+experiences as a refugee, and other special burdens. The selection in general, and interview dates and  
+modalities in particular shall take such special situations into account. Applicants may therefore indicate  
+such personal circumstances in their application on a voluntary basis.
+Further aspects of the selection process will follow DAAD guidelines (“Merkblatt für die Gutachtertätigkeit 
+in  den  DAAD-Auswahlkommissionen”,  07/2020).  In  particular,  the  selection  process  is  confidential; 
+protocols of all selection meetings will be kept; conflicts of interests will be avoided. All applicants are  
+eventually  notified  about  the  decision  of  the  Selection  Committee,  but  do  not  receive  detailed 
+explanations for the decision. A fundamental legal right to claim funding within this program does not  
+exist.
+5 Selection Criteria
+SECAI scholarships are primarily merit-based and will be reserved for excellent candidates. In addition, the 
+selection committee will give due consideration to aspects of equal opportunities and life circumstances, 
+on which applicants can provide information in their application. The selection criteria are:
+Professional qualification
+ University education, grades, and study time
+ Professional fit for the intended work or study project
+ Special academic achievements (awards, publications, past scholarships, etc.)
+ Knowledge of the language of instruction or working language
+ Ability to discuss professional topics during interview
+ If applicable: relevant internships, work experience
+Quality of the thesis project (if applicable)
+ Quality of the thesis project, in particular taking SECAI topics into account
+ Endorsement by prospective host or supervisor
+Potential of the applicant
+ Motivation: academic and personal reasons for the scholarship 
+ Prospects: potential for further academic, professional, and personal development, especially in  
+relation to SECAI
+ Contribution:  degree  to  which  supporting  the  candidate  can  advance  SECAI  goals  (either 
+professional or structural)
+Extra-curricular qualifications
+ Extracurricular knowledge and skills (suitably documented)
+ Social, political, cultural, or family-related commitment
+ Activities related to student life and university organization
+Further selection criteria can be specified for concrete calls. For example, calls may be addressed to  
+students of specific programs, to women in STEM-related subjects, or to international students.
+6 Applications, Deadlines, Documents
+Calls for scholarship applications will be published on the SECAI website and other public channels. Such  
+calls may further restrict the eligible types of applications and set a specific deadline for applying.
+Independent of such calls, current students of TU Dresden and Leipzig University, and visiting students  
+who are endorsed by a host professor at TU Dresden or Leipzig University can apply at any time.
+Applications should include all documents that are relevant to the selection criteria outlined above. This  
+will always include a cover letter that clearly specifies what the candidate is applying for, motivates the  
+application,  and  mentions  personal  circumstances  that  might  be  of  importance  to  the  evaluation. 
+Moreover, a CV and official certificates about prior university education should always be provided.
+Visiting students must further provide a written endorsement of the application by their host, and a  
+description of the project work planned during the stay.
