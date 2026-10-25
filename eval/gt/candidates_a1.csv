@@ -1,0 +1,151 @@
+id,name,country,type,domain_hint,query,url
+daad_master_all,DAAD Study Scholarships - Master Studies for All Academic Disciplines,Germany,government,daad.de,,https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?detail=50026200
+daad_stem,DAAD Study Scholarships for STEM disciplines,Germany,government,daad.de,,https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?detail=57742130
+daad_epos,DAAD Development-Related Postgraduate Courses (EPOS),Germany,government,daad.de,,https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?detail=50076777
+zuse_secai,Konrad Zuse School SECAI master scholarships,Germany,government,secai.org,SECAI Zuse School master scholarship,https://secai.org/students/scholarships
+zuse_relai,Konrad Zuse School of Excellence in Reliable AI (relAI) master scholarship,Germany,government,zuseschoolrelai.de,relAI Zuse School master scholarship,https://zuseschoolrelai.de/scholarship-association
+boell_international,Heinrich Böll Foundation scholarships for international students,Germany,foundation,boell.de,,https://www.boell.de/en/scholarships
+kas_international,Konrad-Adenauer-Stiftung scholarship programme for international students,Germany,foundation,kas.de,Konrad-Adenauer-Stiftung scholarship international students master,https://www.kas.de/en/web/begabtenfoerderung-und-kultur/stipendien
+fes_international,Friedrich Ebert Foundation scholarship for international students,Germany,foundation,fes.de,Friedrich-Ebert-Stiftung Stipendium ausländische Studierende Deutschland,
+rosalux_international,Rosa Luxemburg Foundation scholarships for international students,Germany,foundation,rosalux.de,Rosa Luxemburg Stiftung Studienwerk scholarship international students,https://www.rosalux.de/en/foundation/studienwerk/scholarships/study-scholarship
+kaad_eastern_europe,KAAD Eastern Europe Programme,Germany,foundation,kaad.de,KAAD Eastern Europe scholarship programme,https://www.kaad.de/en/stipendien
+deutschlandstipendium,Deutschlandstipendium,Germany,government,deutschlandstipendium.de,Deutschlandstipendium international students,https://www.deutschlandstipendium.de/deutschlandstipendium/de/services/english/the-deutschlandstipendium-best-of-both-worlds-for-students.html
+studienstiftung,German Academic Scholarship Foundation (Studienstiftung) scholarships for students,Germany,foundation,studienstiftung.de,Studienstiftung international students scholarship eligibility,
+evonik_foundation,Evonik Foundation Scholarship,Germany,foundation,evonik-stiftung.de,Evonik Stiftung Stipendium,https://www.evonik-stiftung.de/de/stipendien
+cusanuswerk,Cusanuswerk postgraduate fellowships,Germany,foundation,cusanuswerk.de,Cusanuswerk Stipendium ausländische Studierende,https://www.cusanuswerk.de/foerderung/finanzielle-foerderung/foerderung-von-studierenden
+sdw_study,Foundation of German Business (sdw) study sponsorship,Germany,foundation,sdw.org,Stiftung der Deutschen Wirtschaft Studienförderung,https://www.sdw.org/studierende-und-promovierende
+avicenna,Avicenna Studienwerk international scholarship programme,Germany,foundation,avicenna-studienwerk.de,Avicenna Studienwerk international scholarship,https://www.avicenna-studienwerk.de/scholarship
+uhh_merit,Universität Hamburg Merit Scholarships for International Students,Germany,university,uni-hamburg.de,Universität Hamburg merit scholarship international students,https://www.uni-hamburg.de/en/internationales/studierende/incoming/studium-mit-abschluss/waehrend-des-studiums/finanzierung/leistungsstipendien.html
+rwth_women_engineering,RWTH International Academy Women in Engineering Scholarship,Germany,university,rwth-aachen.de,RWTH International Academy Women in Engineering scholarship,https://www.academy.rwth-aachen.de/en/services/scholarships
+bw_stipendium,Baden-Württemberg-STIPENDIUM for Students,Germany,government,bw-stipendium.de,Baden-Württemberg-STIPENDIUM for students,https://www.bw-stipendium.de/en
+sbw_berlin,SBW Berlin Scholarship,Germany,foundation,sbw.berlin,SBW Berlin scholarship,https://sbw.berlin/en/scholarships
+toepfer_you_and_europe,Alfred Toepfer Stiftung You and Europe Scholarship Programme,Germany,foundation,toepfer-stiftung.de,You and Europe scholarship Toepfer Studienstiftung,https://www.toepfer-stiftung.de/en/what-we-do/you-and-europe
+nl_scholarship,NL Scholarship,Netherlands,government,studyinnl.org,,https://www.studyinnl.org/finances/nl-scholarship
+amsterdam_excellence,Amsterdam Excellence Scholarships,Netherlands,university,uva.nl,Amsterdam Excellence Scholarships AES University of Amsterdam,
+leiden_excellence,Leiden Excellence Scholarship (LExS),Netherlands,university,universiteitleiden.nl,Leiden Excellence Scholarship LExS,https://www.universiteitleiden.nl/en/scholarships/sea/leiden-university-excellence-scholarship-lexs
+tudelft_van_effen,Justus & Louise van Effen Excellence Scholarships,Netherlands,university,tudelft.nl,Justus Louise van Effen Excellence Scholarships TU Delft master,
+utrecht_excellence,Utrecht Excellence Scholarships,Netherlands,university,uu.nl,Utrecht Excellence Scholarships,https://www.uu.nl/en/masters/utrecht-excellence-scholarships
+tue_alsp,Amandus H. Lundqvist Scholarship Program (TU Eindhoven),Netherlands,university,tue.nl,TU Eindhoven scholarship international master students,
+twente_uts,University of Twente Scholarships (UTS),Netherlands,university,utwente.nl,University of Twente Scholarships UTS,https://www.utwente.nl/en/education/scholarship-finder/university-of-twente-scholarship
+rug_eric_bleumink,Eric Bleumink Fund (University of Groningen),Netherlands,university,rug.nl,Eric Bleumink Fund University of Groningen,https://www.rug.nl/alumni/support-research-and-education/scholarships-and-awards/eric-bleumink-fund/applying-for-a-grant
+radboud_scholarship,Radboud Scholarship Programme,Netherlands,university,ru.nl,Radboud Scholarship Programme,https://www.ru.nl/en/education/scholarships/radboud-scholarship-programme
+maastricht_uhp,Maastricht University Holland-High Potential Scholarship,Netherlands,university,maastrichtuniversity.nl,Maastricht University Holland High Potential scholarship,https://www.maastrichtuniversity.nl/studeren/toelating-inschrijving/financing-your-studies/scholarships/maastricht-university-nl-high
+wur_van_den_ban,Anne van den Ban Fund (Wageningen University),Netherlands,university,wur.nl,Anne van den Ban Fund Wageningen,https://www.wur.nl/en/about-wur/university-fund/named-funds/anne-van-den-ban-fund
+tilburg_tusep,Tilburg University Scholarships for Excellent Students (TUSES),Netherlands,university,tilburguniversity.edu,Tilburg University excellence scholarship master,https://www.tilburguniversity.edu/education/masters-programs/tuition-fees-scholarships
+vu_fellowship,VU Amsterdam Fellowship Programme (VUFP),Netherlands,university,vu.nl,VU Amsterdam Fellowship Programme,https://vu.nl/en/education/more-about/incoming-master-scholarships
+eur_holland,Erasmus University Rotterdam Holland Scholarship / Erasmus Trustfonds,Netherlands,university,eur.nl,Erasmus University Rotterdam scholarship international master,https://www.eur.nl/en/ese/education/master/fees-and-scholarships/scholarships-and-grants/erasmus-trustfonds-scholarship
+leiden_holland,Leiden University NL Scholarship,Netherlands,university,universiteitleiden.nl,Leiden University NL Scholarship,https://www.universiteitleiden.nl/en/scholarships/sea/nl-scholarship-outgoing
+si_global_professionals,Swedish Institute Scholarships for Global Professionals,Sweden,government,si.se,,https://si.se/en/apply/scholarships/swedish-institute-scholarships-for-global-professionals/
+lund_global,Lund University Global Scholarship,Sweden,university,lunduniversity.lu.se,Lund University Global Scholarship,https://www.lunduniversity.lu.se/study/admission-degree-studies/scholarships-and-awards/lund-university-global-scholarship
+uppsala_ips,Uppsala University Global Scholarships,Sweden,university,uu.se,Uppsala University scholarships fee-paying master's students,
+kth_scholarship,KTH Scholarship,Sweden,university,kth.se,KTH scholarship master,https://www.kth.se/en/studies/master/admissions/scholarships/scholarship-opportunities-for-master-s-studies-1.860447
+chalmers_ipoet,Chalmers IPOET scholarship,Sweden,university,chalmers.se,Chalmers IPOET scholarship,https://www.chalmers.se/en/education/application-and-admission/scholarships-for-fee-paying-students
+linkoping_scholarship,Linköping University International Scholarship,Sweden,university,liu.se,Linköping University international scholarship master,https://liu.se/en/article/scholarships
+gothenburg_study,University of Gothenburg Study Scholarship (Axel Adler),Sweden,university,gu.se,University of Gothenburg study scholarship Axel Adler,https://www.gu.se/en/study-in-gothenburg/apply/scholarships-for-fee-paying-students/axel-adler-scholarship
+stockholm_university_scholarship,Stockholm University scholarship for master's students,Sweden,university,su.se,Stockholm University scholarship tuition fee master,https://www.su.se/scholarships
+umea_scholarship,Umeå University scholarships for fee-paying students,Sweden,university,umu.se,Umeå University scholarship master tuition,https://www.umu.se/en/education/application-and-admission/scholarships
+jonkoping_scholarship,Jönköping University scholarships,Sweden,university,ju.se,Jönköping University scholarship master,https://ju.se/en/study-at-ju/application-and-admission/scholarships-and-funding.html
+aalto_scholarship,Aalto University Scholarship,Finland,university,aalto.fi,Aalto University scholarship master tuition,https://www.aalto.fi/en/international-students/scholarships-study-right-started-on-or-after-1-august-2025
+helsinki_scholarship,University of Helsinki Scholarship,Finland,university,helsinki.fi,University of Helsinki scholarship master's programmes,https://www.helsinki.fi/en/admissions-and-education/apply-bachelors-and-masters-programmes/tuition-fees-and-scholarship-programme
+tampere_scholarship,Tampere University Scholarship,Finland,university,tuni.fi,Tampere University scholarship master,https://www.tuni.fi/en/tau/financial-matters/tuition-fees-and-scholarships
+lut_scholarship,LUT University scholarship,Finland,university,lut.fi,LUT University scholarships master's programmes tuition fee,
+oulu_scholarship,University of Oulu International Scholarship,Finland,university,oulu.fi,University of Oulu scholarship master international,https://www.oulu.fi/en/apply/how-apply/university-oulu-tuition-fees-and-scholarships-for-international-applicants
+jyvaskyla_scholarship,University of Jyväskylä scholarship,Finland,university,jyu.fi,University of Jyväskylä scholarship master,https://www.jyu.fi/en/study-with-us/tuition-fees-and-other-financial-matters
+dk_government_scholarship_dtu,DTU tuition waiver and Danish Government Scholarship,Denmark,government,dtu.dk,DTU scholarship tuition waiver master Danish Government Scholarship,https://www.dtu.dk/english/education/graduate/fees-and-funding/tuition_fee_waivers
+dk_government_scholarship_au,Aarhus University Danish Government Scholarship,Denmark,government,au.dk,Aarhus University Danish Government Scholarship master,https://masters.au.dk/scholarships-and-grants
+dk_government_scholarship_ku,University of Copenhagen Danish Government Scholarship,Denmark,government,ku.dk,University of Copenhagen tuition waiver Danish Government Scholarship,https://www.ku.dk/studies/admission/scholarships-for-full-degree-students
+aalborg_scholarship,Aalborg University Danish Government Scholarship,Denmark,government,aau.dk,Aalborg University scholarship tuition waiver master,https://www.en.aau.dk/education/apply/master/finance-and-fees
+eiffel,France Excellence Eiffel Scholarship Programme,France,government,campusfrance.org,,https://www.campusfrance.org/en/eiffel-scholarship-program-of-excellence
+paris_saclay_ims,Université Paris-Saclay International Master's Scholarships,France,university,universite-paris-saclay.fr,Université Paris-Saclay International Master's Scholarships,http://www.universite-paris-saclay.fr/en/admission/bourses-et-aides-financieres/international-masters-scholarships-program
+ip_paris_master,Institut Polytechnique de Paris master scholarships,France,university,ip-paris.fr,Institut Polytechnique de Paris master scholarship international,https://www.ip-paris.fr/en/education/useful-information/scholarships
+ens_lyon_ampere,ENS de Lyon Ampère Scholarships of Excellence,France,university,ens-lyon.fr,ENS de Lyon Ampère scholarship excellence,http://www.ens-lyon.fr/en/studies/student-information/grants-and-scholarships
+uga_idex,Université Grenoble Alpes IDEX master scholarships,France,university,univ-grenoble-alpes.fr,Université Grenoble Alpes master scholarship international excellence,https://international.univ-grenoble-alpes.fr/come-to-uga/scholarships-and-funding/scholarships-and-funding-1003969.kjsp
+lorraine_master,Université de Lorraine excellence master scholarship,France,university,univ-lorraine.fr,Université de Lorraine master scholarship international excellence,https://www.univ-lorraine.fr/osezlarecherche/en/all-orion-initiatives/excellence-scolarship
+eth_esop,ETH Zurich Excellence Scholarship & Opportunity Programme (ESOP),Switzerland,university,ethz.ch,,https://ethz.ch/students/en/studies/financial/scholarships/excellencescholarship.html
+epfl_excellence,EPFL Excellence Fellowships,Switzerland,university,epfl.ch,EPFL Excellence Fellowships master,https://www.epfl.ch/education/master/master-excellence-fellowships
+unige_excellence,University of Geneva Excellence Master Fellowships,Switzerland,university,unige.ch,University of Geneva Excellence Master Fellowships,https://www.unige.ch/sciences/en/enseignements/formations/masters/excellencemasterfellowships
+unil_master_grant,University of Lausanne Master's grants for foreign students,Switzerland,university,unil.ch,UNIL master's grants for foreign students Université de Lausanne,
+master_mind,Master Mind Scholarships (Flanders),Belgium,government,studyinflanders.be,Master Mind Scholarships Flanders,https://www.studyinflanders.be/scholarships/master-mind-scholarships
+kuleuven_science,KU Leuven Science@Leuven Scholarship,Belgium,university,kuleuven.be,KU Leuven Science@Leuven scholarship,https://www.kuleuven.be/scholarships/year/2026-2027/science-leuven-scholarship
+polimi_gold,Politecnico di Milano Gold and Platinum Scholarships,Italy,university,polimi.it,Politecnico di Milano merit based scholarships international students Gold Platinum,https://www.polimi.it/fileadmin/user_upload/futuri_studenti/borse-di-studio/Call_for_Application_for_Merit_2026-2027.pdf
+padova_excellence,University of Padova International Excellence Scholarships,Italy,university,unipd.it,University of Padova international excellence scholarship master,https://www.unipd.it/en/padua-international-excellence-scholarship-programme
+unibo_action4,University of Bologna Unibo Action 4 study grants,Italy,university,unibo.it,Unibo International Talents scholarships master's degree,
+maeci_invest_talent,Invest Your Talent in Italy,Italy,government,esteri.it,Invest Your Talent in Italy scholarship esteri,
+maeci_government,Italian Government Scholarships for foreign students 2026-27 (MAECI),Italy,government,esteri.it,Italian Government scholarships foreign students MAECI study in Italy,https://www.esteri.it/wp-content/uploads/2026/03/Bando-26-27-ENG.pdf
+oead_ernst_mach,OeAD Ernst Mach Grant,Austria,government,oead.at,Ernst Mach Grant OeAD,https://oead.at/en/study-research-teaching/overview-grants-and-scholarships/ernst-mach-grant
+tuwien_scholarship,TU Wien scholarships for international master students,Austria,university,tuwien.at,TU Wien scholarship international master students,https://www.tuwien.at/en/studies/student-support/financial-support
+chevening,Chevening Scholarships,UK,government,chevening.org,,https://www.chevening.org/scholarships/
+commonwealth_masters,Commonwealth Master's Scholarships,UK,government,cscuk.fcdo.gov.uk,,https://cscuk.fcdo.gov.uk/scholarships/commonwealth-masters-scholarships/
+great_scholarships,GREAT Scholarships,UK,government,britishcouncil.org,GREAT Scholarships British Council,https://study-uk.britishcouncil.org/scholarships-funding/great-scholarships
+gates_cambridge,Gates Cambridge Scholarship,UK,foundation,gatescambridge.org,,https://www.gatescambridge.org/apply/
+clarendon,Clarendon Scholarships (University of Oxford),UK,university,ox.ac.uk,Clarendon Fund scholarships Oxford,https://www.ox.ac.uk/admissions/graduate/fees-and-funding/funding/clarendon
+rhodes,Rhodes Scholarship,UK,foundation,rhodeshouse.ox.ac.uk,,https://www.rhodeshouse.ox.ac.uk/scholarships/the-rhodes-scholarship/
+marshall,Marshall Scholarships,UK,government,marshallscholarship.org,Marshall Scholarship,https://www.marshallscholarship.org/
+cambridge_trust,Cambridge Trust international scholarships,UK,foundation,cambridgetrust.org,Cambridge Trust scholarships master,https://www.cambridgetrust.org/find-a-scholarship
+ucl_global_masters,UCL Global Masters Scholarship,UK,university,ucl.ac.uk,UCL Global Masters Scholarship,https://www.ucl.ac.uk/scholarships/ucl-global-masters-scholarship
+manchester_global_futures,University of Manchester Global Futures Scholarship,UK,university,manchester.ac.uk,University of Manchester Global Futures scholarship,https://www.manchester.ac.uk/study/international/finance-and-scholarships/funding/global-futures-scholarship
+bristol_think_big,University of Bristol Think Big Postgraduate Scholarships,UK,university,bristol.ac.uk,Think Big postgraduate scholarships University of Bristol,
+glasgow_leadership,University of Glasgow International Leadership Scholarship,UK,university,gla.ac.uk,University of Glasgow international leadership scholarship postgraduate,https://www.gla.ac.uk/scholarships/globalleadershipscholarship
+sheffield_merit,University of Sheffield International Merit Postgraduate Scholarship,UK,university,sheffield.ac.uk,University of Sheffield international merit postgraduate scholarship,https://sheffield.ac.uk/international/fees-and-funding/scholarships/postgraduate
+birmingham_masters,University of Birmingham Masters Scholarship,UK,university,birmingham.ac.uk,University of Birmingham Global Masters Scholarship,https://www.birmingham.ac.uk/study/scholarships-funding/birmingham-masters-scholarship
+sussex_chancellors,University of Sussex Chancellor's Masters Scholarship,UK,university,sussex.ac.uk,University of Sussex Chancellor's International Scholarship,https://www.sussex.ac.uk/study/fees-funding/masters-scholarships/view/1878-Chancellor's-Masters-Scholarship
+saltire,Scotland's Saltire Scholarships,UK,government,scotland.org,Scotland's Saltire Scholarships,https://www.scotland.org/study/scholarships
+edinburgh_international_masters,University of Edinburgh international masters scholarships,UK,university,ed.ac.uk,University of Edinburgh international masters scholarship,https://registryservices.ed.ac.uk/student-funding/postgraduate/international
+imperial_great,GREAT – Imperial College London Scholarship,UK,university,imperial.ac.uk,Imperial College London master's scholarship international students,https://www.imperial.ac.uk/study/fees-and-funding/postgraduate-taught/grants-scholarships/international-scholarship-collaborations/great---imperial-college-london-scholarship
+fulbright_foreign,Fulbright Foreign Student Program,USA,government,fulbrightonline.org,,https://foreign.fulbrightonline.org/
+knight_hennessy,Knight-Hennessy Scholars (Stanford),USA,university,stanford.edu,,https://knight-hennessy.stanford.edu/admission
+aauw_international,AAUW International Fellowships,USA,foundation,aauw.org,AAUW International Fellowships,https://www.aauw.org/resources/programs/fellowships-grants
+rotary_global_grant,Rotary Foundation Global Grant Scholarships,USA,foundation,rotary.org,Rotary Global Grant scholarships,https://www.rotary.org/en/our-programs/scholarships
+google_deepmind_ai_masters,Google DeepMind AI Master's Scholarships (IIE),USA,foundation,iie.org,Google DeepMind AI Master's Scholarships IIE,https://www.iie.org/news/iie-announces-google-deepmind-ai-scholarships
+jjwbgsp,Joint Japan/World Bank Graduate Scholarship Program,USA,other,worldbank.org,Joint Japan World Bank Graduate Scholarship Program JJ/WBGSP apply,
+aga_khan,Aga Khan Foundation International Scholarship Programme,USA,foundation,akdn.org,Aga Khan Foundation International Scholarship Programme,https://the.akdn/en/international-scholarships
+peo_ips,P.E.O. International Peace Scholarship,USA,foundation,peointernational.org,PEO International Peace Scholarship,https://www.peointernational.org/educational-support/international-peace-scholarship-fund
+mcnamara_grants,Margaret McNamara Education Grants,USA,foundation,mmeg.org,Margaret McNamara Education Grants,https://www.mmeg.org
+paul_daisy_soros,Paul & Daisy Soros Fellowships for New Americans,USA,foundation,pdsoros.org,Paul and Daisy Soros Fellowships for New Americans,https://pdsoros.org
+hertz_fellowship,Hertz Fellowship,USA,foundation,hertzfoundation.org,Hertz Foundation fellowship,https://www.hertzfoundation.org/the-fellowship/
+mastercard_foundation_scholars,Mastercard Foundation Scholars Program,USA,foundation,mastercardfdn.org,Mastercard Foundation Scholars Program,https://mastercardfdn.org/en/what-we-do/our-programs/mastercard-foundation-scholars-program
+asu_graduate,ASU graduate scholarships for international students,USA,university,asu.edu,Arizona State University graduate scholarship international students,https://admission.asu.edu/apply/international/graduate
+nsf_grfp,NSF Graduate Research Fellowship Program,USA,government,nsfgrfp.org,NSF Graduate Research Fellowship Program eligibility,https://www.nsf.gov/funding/initiatives/grfp/eligibility
+vanier,Vanier Canada Graduate Scholarships,Canada,government,vanier.gc.ca,,https://vanier.gc.ca/en/home-accueil.html
+cgs_m,Canada Graduate Scholarships – Master's,Canada,government,nserc-crsng.gc.ca,Canada Graduate Scholarships Master's program,https://nserc-crsng.canada.ca/en/funding-opportunity/canada-graduate-research-scholarship-masters-program
+waterloo_imae,University of Waterloo International Master's Award of Excellence,Canada,university,uwaterloo.ca,University of Waterloo International Master's Award of Excellence,https://uwaterloo.ca/current-graduate-students/awards-and-funding/international-student-funding
+ogs,Ontario Graduate Scholarship,Canada,government,ontario.ca,Ontario Graduate Scholarship international students,https://gradstudents.carleton.ca/ogs
+concordia_itae,Concordia University International Tuition Award of Excellence,Canada,university,concordia.ca,Concordia International Tuition Award of Excellence graduate,https://www.concordia.ca/gradstudies/funding/entrance-awards/international-tuition-award-of-excellence.html
+ubc_graduate,UBC graduate awards for international students,Canada,university,ubc.ca,UBC graduate awards international students master,https://www.grad.ubc.ca/awards/international-tuition-award
+toronto_pearson,Lester B. Pearson International Scholarship (University of Toronto),Canada,university,utoronto.ca,Lester B. Pearson International Scholarship University of Toronto,https://future.utoronto.ca/scholarships-international-students
+alberta_graduate,University of Alberta graduate scholarships for international students,Canada,university,ualberta.ca,University of Alberta graduate scholarship international students master,https://www.ualberta.ca/en/graduate-studies/fees-funding/scholarships-awards/entrance-scholarship.html
+em_emecs,Erasmus Mundus European Master in Embedded Computing Systems (EMECS),Erasmus Mundus,erasmus_mundus,uni-kl.de,,https://emecs.eit.uni-kl.de
+em_eminent,Erasmus Mundus Joint Master in Intelligent Nanosystems (EMINENT),Erasmus Mundus,erasmus_mundus,eminent-master.eu,,https://eminent-master.eu
+em_bdma,Erasmus Mundus Joint Master in Big Data Management and Analytics (BDMA),Erasmus Mundus,erasmus_mundus,bdma.ulb.ac.be,Erasmus Mundus BDMA Big Data Management and Analytics,https://bdma.ulb.ac.be
+em_cyberus,Erasmus Mundus Joint Master in Cybersecurity (CYBERUS),Erasmus Mundus,erasmus_mundus,master-cyberus.eu,Erasmus Mundus CYBERUS cybersecurity master,https://master-cyberus.eu
+em_copernicus_digital_earth,Copernicus Master in Digital Earth,Erasmus Mundus,erasmus_mundus,master-cde.eu,Copernicus Master in Digital Earth Erasmus Mundus,https://master-cde.eu
+em_emai,Erasmus Mundus Joint Master in Artificial Intelligence (EMAI),Erasmus Mundus,erasmus_mundus,master-emai.eu,Erasmus Mundus Joint Master Artificial Intelligence EMAI,https://www.upf.edu/web/emai/about-this-master
+em_se4gd,Erasmus Mundus Software Engineers for Green Deal (SE4GD),Erasmus Mundus,erasmus_mundus,lut.fi,SE4GD Erasmus Mundus Software Engineers for Green Deal LUT,
+em_jemaro,Japan-Europe Master on Advanced Robotics (JEMARO),Erasmus Mundus,erasmus_mundus,jemaro.ec-nantes.fr,JEMARO Japan Europe Master Advanced Robotics Erasmus Mundus,https://jemaro.ec-nantes.fr
+em_mir,Erasmus Mundus Master in Marine and Maritime Intelligent Robotics (MIR),Erasmus Mundus,erasmus_mundus,master-mir.eu,Erasmus Mundus MIR Marine Maritime Intelligent Robotics,https://www.master-mir.eu
+em_intermaths,Erasmus Mundus InterMaths (Applied and Interdisciplinary Mathematics),Erasmus Mundus,erasmus_mundus,intermaths.eu,Erasmus Mundus InterMaths applied interdisciplinary mathematics,https://www.intermaths.eu/erasmus-mundus
+em_imlex,Erasmus Mundus Imaging and Light in Extended Reality (IMLEX),Erasmus Mundus,erasmus_mundus,imlex.org,Erasmus Mundus IMLEX imaging light extended reality,https://www.imlex.org
+em_dsc,Erasmus Mundus Joint Master in Data Science (EMJMD DSC or similar),Erasmus Mundus,erasmus_mundus,,Erasmus Mundus joint master data science scholarship,https://deai.ulb.be
+em_quantum,Erasmus Mundus Joint Master in Quantum Science and Technology,Erasmus Mundus,erasmus_mundus,,Erasmus Mundus joint master quantum science technology scholarship,https://www.quanteem.eu
+em_sustainable_energy,Erasmus Mundus Joint Master in Sustainable Energy / Renewable Energy (EMJM),Erasmus Mundus,erasmus_mundus,,Erasmus Mundus joint master renewable energy scholarship,https://master-remplus2.eu
+stipendium_hungaricum,Stipendium Hungaricum,Hungary,government,stipendiumhungaricum.hu,Stipendium Hungaricum scholarship master,https://stipendiumhungaricum.hu
+visegrad,Visegrad Scholarship Program,Other Europe,government,visegradfund.org,Visegrad Scholarship Program master,https://www.visegradfund.org/visegrad-scholarship-program-apply
+eit_digital,EIT Digital Master School scholarships,Other Europe,other,masterschool.eitdigital.eu,EIT Digital Master School scholarship,https://masterschool.eitdigital.eu/faq
+ireland_goi_ies,Government of Ireland International Education Scholarship,Ireland,government,hea.ie,Government of Ireland International Education Scholarship GOI-IES,https://hea.ie/policy/internationalisation/goi-ies
+naumann_international,Friedrich Naumann Foundation scholarships for international students,Germany,foundation,freiheit.org,Friedrich Naumann Foundation scholarship international students master,
+hss_international,Hanns Seidel Foundation scholarships for foreign students,Germany,foundation,hss.de,Hanns-Seidel-Stiftung Stipendium ausländische Studierende,
+orebro_scholarship,Örebro University scholarships for fee-paying students,Sweden,university,oru.se,Örebro University scholarship fee-paying students master,
+karlstad_scholarship,Karlstad University scholarships for fee-paying students,Sweden,university,kau.se,Karlstad University scholarship fee-paying students,
+turku_scholarship,University of Turku scholarship programme for international students,Finland,university,utu.fi,University of Turku scholarship master international students,
+abo_scholarship,Åbo Akademi University scholarships for master's students,Finland,university,abo.fi,Åbo Akademi University scholarship master tuition fee,
+tartu_scholarship,University of Tartu tuition waiver and scholarships for international master's students,Other Europe,university,ut.ee,University of Tartu scholarship tuition waiver master international,
+trento_scholarship,University of Trento scholarships for international students,Italy,university,unitn.it,University of Trento scholarships international students master,
+pavia_excellence,University of Pavia International Excellence Scholarships,Italy,university,unipv.eu,University of Pavia international excellence scholarship,
+leeds_international_masters,University of Leeds International Masters Scholarship,UK,university,leeds.ac.uk,University of Leeds international masters scholarship,
+nottingham_developing_solutions,University of Nottingham Developing Solutions Masters Scholarship,UK,university,nottingham.ac.uk,University of Nottingham Developing Solutions Masters Scholarship,
+tcd_global_excellence,Trinity College Dublin Global Excellence Postgraduate Scholarship,Ireland,university,tcd.ie,Trinity College Dublin Global Excellence Postgraduate Scholarship,
+ucd_global_excellence,UCD Global Excellence Graduate Scholarship,Ireland,university,ucd.ie,UCD Global Excellence Graduate Scholarship,
+em_spacemaster,Joint European Master in Space Science and Technology (SpaceMaster),Erasmus Mundus,erasmus_mundus,spacemaster.eu,SpaceMaster Erasmus Mundus joint European master space science technology,
+em_ssi,Erasmus Mundus Smart Systems Integrated Solutions (SSIs),Erasmus Mundus,erasmus_mundus,,Erasmus Mundus Smart Systems Integrated Solutions SSI master,
+uclouvain_fsr,UCLouvain scholarships for international master's students,Belgium,university,uclouvain.be,UCLouvain scholarship international master students excellence,
+ulb_master_scholarship,Université libre de Bruxelles master scholarships for international students,Belgium,university,ulb.be,ULB master scholarship international students,

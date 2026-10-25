@@ -1,12 +1,13 @@
 """Сохраняет снимки страниц для эталонной разметки.
 
 Вход: eval/gt/pages_to_fetch.csv (id,url). Для каждой пары, которой ещё нет в манифесте:
-свой fetch (честный User-Agent, robots.txt) + trafilatura, при 403 / JS-оболочке — Tavily Extract.
+свой fetch (честный User-Agent, robots.txt) + trafilatura (PDF — pypdf), при 403 / JS-оболочке — Tavily Extract.
 Выход: eval/gt/pages/<id>/<n>.txt и строка в eval/gt/pages/manifest.csv (id, n, url, sha256, fetched_at, source, chars).
 """
 
 import csv
 import hashlib
+import io
 import os
 import sys
 import time
@@ -18,6 +19,8 @@ from urllib.robotparser import RobotFileParser
 import httpx
 import trafilatura
 from dotenv import load_dotenv
+from pypdf import PdfReader
+from pypdf.errors import PyPdfError as PdfError
 from tavily import TavilyClient
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -52,6 +55,14 @@ def robots_allowed(client: httpx.Client, url: str, cache: dict) -> bool:
     return cache[base].can_fetch(BOT_UA, url)
 
 
+def pdf_text(data: bytes) -> str:
+    try:
+        reader = PdfReader(io.BytesIO(data))
+        return "\n".join(page.extract_text() or "" for page in reader.pages)
+    except PdfError:
+        return ""
+
+
 def own_fetch(client: httpx.Client, url: str) -> str:
     try:
         r = client.get(url)
@@ -59,6 +70,8 @@ def own_fetch(client: httpx.Client, url: str) -> str:
         return ""
     if r.status_code != 200:
         return ""
+    if "pdf" in r.headers.get("content-type", "") or url.lower().endswith(".pdf"):
+        return pdf_text(r.content)
     return trafilatura.extract(r.text, include_tables=True, favor_recall=True) or ""
 
 

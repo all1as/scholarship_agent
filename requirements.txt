@@ -5,3 +5,4 @@ tavily-python
 openai
 jsonschema
 cryptography
+pypdf

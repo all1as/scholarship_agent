@@ -1,0 +1,17 @@
+Il traffico verso questo servizio è stato classificato come potenzialmente automatizzato. Per motivi di sicurezza, è richiesta una verifica aggiuntiva.
+Your traffic to this service was classified as potentially automated. For security reasons, an additional verification step is required.
+Incident ID: 143481b3-dcxq-42a9-9ba2-68b26cb1db93
+Cosa puoi fare
+Completa il CAPTCHA per richiedere lo sblocco, poi riprova ad accedere.
+- Se stai usando VPN o Proxy, disattivali e riprova.
+- Se sei su una rete condivisa, potrebbe esserci stata attività malevola precedente sulla stessa uscita Internet.
+- Se ritieni che sia un errore, contatta il supporto indicando l’Incident ID.
+What you can do
+Complete the CAPTCHA to request an unblock, then try again.
+- If you are using a VPN or Proxy, disable it and retry.
+- If you are on a shared network, there may have been previous malicious activity from the same Internet egress.
+- If you believe this is an error, contact support and provide the Incident ID.
+Verifica CAPTCHA
+Inserisci la verifica richiesta per procedere.
+CAPTCHA verification
+Please complete the required verification to continue.
