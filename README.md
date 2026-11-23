@@ -1,4 +1,4 @@
-﻿# scholarship_agent
+# scholarship_agent
 
 Агент-«тетрадь» для поиска и отслеживания стипендий на магистратуру (STEM/IT, ЕС, UK, США, Канада). Подробности — в [design doc](docs/design_doc.md).
 
@@ -16,13 +16,15 @@
 
 ```bash
 python -m harness run --system b1 --suite extract     # baseline B1 на видимой части A2
-python -m harness run --system llm --suite extract    # LLM-извлечение: нужны OPENAI_API_KEY и PRICE_IN/PRICE_OUT в .env
+python -m harness run --system llm --suite extract    # LLM-извлечение: нужен OPENAI_API_KEY в .env (цена gpt-5.4-mini уже в коде)
 python -m harness scenarios                         # S1–S7, офлайн с фиксированными ответами экстрактора
 python -m harness compare runs/<id1> runs/<id2>       # метрики, стоимость, время рядом
+python eval/scripts/m8c.py sample runs/<id>          # M8(в): выборка 30 фактов; проверяет агент по docs/m8c_checker_prompt.md
+python eval/scripts/m8c.py score runs/<id>
 python -m unittest discover tests
 ```
 
-Результаты КТ3: [baseline B1](runs/20261123-125922-295786_b1_extract), [сценарии S1–S7](runs/20261123-125922-770224_agent-replay_scenarios), [ADR-001](adr/001-notebook-levels.md).
+Результаты КТ3: [baseline B1](runs/20261123-151721-417369_b1_extract), LLM-извлечение — [повтор 1](runs/20261123-150006-426197_llm_extract) (с M8(в)), [повтор 2](runs/20261123-150438-540296_llm_extract), [повтор 3](runs/20261123-150856-994868_llm_extract), [сценарии S1–S7](runs/20261123-151722-150632_agent-replay_scenarios), [ADR-001](adr/001-notebook-levels.md). Сводка — design doc, 8.3.
 
 Baseline и LLM сравниваются на одинаковых задачах A2. Сценарии проверяют оркестрацию и память на фиксированных ответах экстрактора. Живой LLM-прогон оценивает извлечение отдельно.
 

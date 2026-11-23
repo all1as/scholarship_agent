@@ -1,24 +1,20 @@
 {
-  "run_id": "20261123-145907-168697_b1_extract",
-  "started_at": "2026-11-23T14:59:07+00:00",
-  "suite": "extract",
-  "note": "",
+  "run_id": "20261123-151722-150632_agent-replay_scenarios",
+  "started_at": "2026-11-23T15:17:22+00:00",
+  "suite": "scenarios",
+  "note": "многошаговые сценарии",
   "system": {
-    "name": "b1",
+    "name": "agent-replay",
+    "extractor": "replay-gt-v1",
     "model": null,
-    "version": "b1-2026-11-21",
     "temperature": null,
     "seed": null,
-    "rules": {
-      "keyword": "deadline|closing date|apply by|applications? (?:close|closes|must be (?:submitted|received))|due date|submission date",
-      "window_chars": 200,
-      "period": "per month|a month|monthly|/month|per year|a year|annually|per annum|yearly|/year"
-    }
+    "notebook": "sqlite :memory:, свежая на каждый сценарий"
   },
   "budget_per_task": {
-    "max_steps": 8,
-    "max_tool_calls": 20,
-    "max_cost_usd": 0.05,
+    "max_steps": 40,
+    "max_tool_calls": 200,
+    "max_cost_usd": 0.5,
     "max_seconds": 120.0
   },
   "eval_set": {
@@ -36,94 +32,132 @@
     }
   },
   "git": {
-    "commit": "60f0fa7fabf6c672339d3cc83dbdcb125051fc7e",
+    "commit": "9dbe19cdd9834b5d88cba85373b1ec1800654f1d",
     "branch": "kt3",
-    "dirty": true
+    "dirty": false
   },
   "python": "3.11.6",
   "totals": {
-    "tasks": 70,
+    "tasks": 7,
     "cost_usd": 0.0,
     "tokens_in": 0,
     "tokens_out": 0,
-    "tool_calls": 179,
-    "wall_seconds": 0.17,
-    "task_seconds_p50": 0.002,
-    "task_seconds_p95": 0.004
+    "tool_calls": 132,
+    "wall_seconds": 0.07,
+    "task_seconds_p50": 0.008,
+    "task_seconds_p95": 0.02
   },
   "task_ids": [
-    "amsterdam_excellence",
-    "birmingham_masters",
-    "boell_international",
-    "bw_stipendium",
-    "cgs_m",
-    "chalmers_ipoet",
-    "chevening",
-    "clarendon",
-    "commonwealth_masters",
-    "cusanuswerk",
-    "daad_epos",
-    "daad_master_all",
-    "daad_stem",
-    "dk_government_scholarship_au",
-    "eiffel",
-    "em_emecs",
-    "em_eminent",
-    "em_imlex",
-    "em_intermaths",
-    "em_jemaro",
-    "em_sustainable_energy",
-    "epfl_excellence",
-    "eth_esop",
-    "gates_cambridge",
-    "glasgow_leadership",
-    "google_deepmind_ai_masters",
-    "helsinki_scholarship",
-    "hertz_fellowship",
-    "hss_international",
-    "kaad_eastern_europe",
-    "kas_international",
-    "knight_hennessy",
-    "kth_scholarship",
-    "kuleuven_science",
-    "leiden_excellence",
-    "lund_global",
-    "maastricht_uhp",
-    "maeci_invest_talent",
-    "manchester_global_futures",
-    "marshall",
-    "master_mind",
-    "mcnamara_grants",
-    "naumann_international",
-    "nl_scholarship",
-    "nsf_grfp",
-    "oead_ernst_mach",
-    "oulu_scholarship",
-    "padova_excellence",
-    "paris_saclay_ims",
-    "peo_ips",
-    "polimi_gold",
-    "radboud_scholarship",
-    "rhodes",
-    "rosalux_international",
-    "si_global_professionals",
-    "stipendium_hungaricum",
-    "sussex_chancellors",
-    "tampere_scholarship",
-    "tcd_global_excellence",
-    "toronto_pearson",
-    "twente_uts",
-    "uga_idex",
-    "uhh_merit",
-    "umea_scholarship",
-    "uppsala_ips",
-    "vanier",
-    "visegrad",
-    "waterloo_imae",
-    "zuse_relai",
-    "zuse_secai"
+    "S1",
+    "S2",
+    "S3",
+    "S4",
+    "S5",
+    "S6",
+    "S7"
   ],
-  "task_overrides": {},
+  "task_overrides": {
+    "S1": {
+      "tool_limits": {
+        "fetch": 60,
+        "fetch_alt": 20,
+        "list_pages": 20,
+        "extract_llm": 60,
+        "search": 20
+      }
+    },
+    "S2": {
+      "tool_limits": {
+        "fetch": 60,
+        "fetch_alt": 20,
+        "list_pages": 20,
+        "extract_llm": 60,
+        "search": 20
+      },
+      "faults": {
+        "fetch": {
+          "eiffel/1.txt": [
+            "http_5xx",
+            "http_5xx",
+            null
+          ],
+          "commonwealth_masters/1.txt": "http_403",
+          "lund_global/1.txt": [
+            null,
+            "http_403"
+          ],
+          "lund_global/2.txt": "http_403"
+        },
+        "fetch_alt": {
+          "lund_global/1.txt": "http_403",
+          "lund_global/2.txt": "http_403"
+        },
+        "extract_llm": {
+          "nl_scholarship/1.txt": [
+            "invalid_json",
+            "invalid_json"
+          ]
+        }
+      }
+    },
+    "S3": {
+      "budget": {
+        "max_steps": 10,
+        "max_tool_calls": 200,
+        "max_cost_usd": 1.0,
+        "max_seconds": 120
+      },
+      "tool_limits": {
+        "fetch": 60,
+        "fetch_alt": 20,
+        "list_pages": 20,
+        "extract_llm": 60,
+        "search": 20
+      }
+    },
+    "S4": {
+      "tool_limits": {
+        "fetch": 60,
+        "fetch_alt": 20,
+        "list_pages": 20,
+        "extract_llm": 60,
+        "search": 20
+      }
+    },
+    "S5": {
+      "tool_limits": {
+        "fetch": 60,
+        "fetch_alt": 20,
+        "list_pages": 20,
+        "extract_llm": 60,
+        "search": 20
+      }
+    },
+    "S6": {
+      "tool_limits": {
+        "fetch": 60,
+        "fetch_alt": 20,
+        "list_pages": 20,
+        "extract_llm": 60,
+        "search": 20
+      }
+    },
+    "S7": {
+      "budget": {
+        "max_steps": 60,
+        "max_tool_calls": 200,
+        "max_cost_usd": 1.0,
+        "max_seconds": 120
+      },
+      "tool_limits": {
+        "fetch": 60,
+        "fetch_alt": 20,
+        "list_pages": 20,
+        "extract_llm": 60,
+        "search": 20
+      }
+    }
+  },
   "tool_contracts": {
     "list_pages": {
       "name": "list_pages",
