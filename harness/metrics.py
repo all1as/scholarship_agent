@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import math
 
+from .core import BUDGET, ERROR, PARTIAL, REFUSED
 from .rules import TARGET_CYCLE, cycle_status, resolve_date
 from .tools import PAGES, norm
 
@@ -109,8 +110,15 @@ def score_extract(results: list, labels: dict[str, dict]) -> tuple[list[dict], d
     per_task, cache = [], {}
     for r in results:
         gt = labels[r.task_id]
-        pred = r.output if r.status != "error" else {}
-        row = {"id": r.task_id, "status": r.status, "m4": m4(pred, gt), "m5": m5(pred, gt), **m6_m8(pred, cache)}
+        failed = r.status in (ERROR, REFUSED)
+        incomplete = r.status in (PARTIAL, BUDGET)
+        pred = {} if failed else r.output
+        deadline_score, amount_score = m4(pred, gt), m5(pred, gt)
+        if failed or (incomplete and not pred.get("application_deadlines")):
+            deadline_score.update(correct=False, status_ok=False, set_ok=False)
+        if failed or (incomplete and not pred.get("amount")):
+            amount_score["correct"] = False
+        row = {"id": r.task_id, "status": r.status, "m4": deadline_score, "m5": amount_score, **m6_m8(pred, cache)}
         per_task.append(row)
     n = len(per_task)
     k4 = sum(x["m4"]["correct"] for x in per_task)

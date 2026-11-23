@@ -140,8 +140,13 @@ class LLMExtract:
                              (u.prompt_tokens * self.price[0] + u.completion_tokens * self.price[1]) / 1e6)
             ctx.meter.check()
             try:
-                return json.loads(resp.choices[0].message.content)
-            except (json.JSONDecodeError, TypeError):
+                data = json.loads(resp.choices[0].message.content)
+                if not isinstance(data, dict) or not isinstance(data.get("dates"), list) or "amount" not in data:
+                    raise ValueError("response must contain dates and amount")
+                if data["amount"] is not None and not isinstance(data["amount"], dict):
+                    raise ValueError("amount must be an object or null")
+                return data
+            except (ValueError, TypeError, IndexError):
                 ctx.log("tool_error", tool="extract_llm", arg=page, code="invalid_json")
                 if attempts_json < 1:
                     attempts_json += 1
@@ -179,11 +184,16 @@ class LLMExtract:
                     out["other_dates"].append(fact | {"type": d["type"]})
             a = data.get("amount")
             if a and out["amount"] is None:
-                if norm(a["quote"]) in ntext and (a.get("value") is not None or a.get("full_coverage")):
+                if quote_in_snapshot(a, ntext) and (a.get("value") is not None or a.get("full_coverage")):
                     out["amount"] = {**a, "variants": None, **prov}
                 elif a:
                     out["rejected"].append({"page": page, "reason": "amount: цитата не найдена или пусто", "item": a})
         return (PARTIAL if out["pages_failed"] else OK), out
+
+
+def quote_in_snapshot(fact: dict, ntext: str) -> bool:
+    quote = fact.get("quote")
+    return isinstance(quote, str) and bool(norm(quote)) and norm(quote) in ntext
 
 
 def _invalid(d: dict, ntext: str) -> str | None:
@@ -191,7 +201,7 @@ def _invalid(d: dict, ntext: str) -> str | None:
         return f"формат даты {d.get('date')} не соответствует точности {d.get('granularity')}"
     if d.get("cycle") and not re.fullmatch(r"20\d{2}/\d{2}", d["cycle"]):
         return f"формат цикла {d['cycle']}"
-    if norm(d.get("quote", "")) not in ntext:
+    if not quote_in_snapshot(d, ntext):
         return "цитата не найдена в снимке"
     return None
 

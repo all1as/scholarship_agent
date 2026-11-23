@@ -56,7 +56,8 @@ def git_state() -> dict:
 
 
 def eval_fingerprint() -> dict:
-    files = ["labels_a.jsonl", "split.csv", "pages/manifest.csv", "conflicts.jsonl", "duplicates.jsonl"]
+    files = ["labels_a.jsonl", "split.csv", "pages/manifest.csv", "conflicts.jsonl",
+             "duplicates.jsonl", "reference_list.csv"]
     snapshots = {str(p.relative_to(GT).as_posix()): sha256_file(p)
                  for sid in sorted(visible_ids()) for p in sorted((GT / "pages" / sid).glob("*.txt"))}
     return {"version": EVAL_VERSION, "part": "visible", "clock": EVAL_DATE,

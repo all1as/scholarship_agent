@@ -66,7 +66,8 @@ def s1_check(res, agent):
     searches_after_missing = order[order.index("search", 1) + 1:] if order.count("search") > 1 else []
     return [
         ("поиск → список страниц → загрузка (порядок)", order[0] == "search" and order.index("list_pages") < first_fetch, " → ".join(order[:5])),
-        ("дедлайн взят с подстраницы timeline (шаг 2 по результату шага 1)", w and w["source_url"] and w["date"] == "2026-10",
+        ("дедлайн взят с подстраницы timeline (шаг 2 по результату шага 1)",
+         w and w["source_url"].rstrip("/").endswith("/application-timeline") and w["date"] == "2026-10",
          f"{w and w['date']} scope={w and w['scope']}"),
         ("область дедлайна — страна", w and w["scope"] == "country", str(w and w["scope_detail"])),
         ("дата оффера 8 July 2027 не выдана за дедлайн подачи", any(f["value"] == "2027-07-08" for f in offer)
@@ -111,9 +112,11 @@ def s2_check(res, agent):
          f"retries={len(retries)} via={o['eiffel']['pages'][0]['via']}"),
         ("http_403: без ретраев, запасной путь fetch_alt", cw_pages.get("commonwealth_masters/1.txt") == "fetch_alt"
          and not _events(res, event="retry", page="commonwealth_masters/1.txt"), str(cw_pages)),
-        ("invalid_json: 1 повтор, затем страница в кандидатах с причиной, остальные страницы обработаны",
+        ("invalid_json: 1 повтор, затем страница в кандидатах с причиной, обработка продолжается",
          any("invalid_json" in c["reason"] for c in nl["candidates"]) and nl["status"] == "partial"
-         and len(_events(res, event="retry", tool="extract_llm")) == 1, json.dumps(nl["candidates"], ensure_ascii=False)),
+         and len(_events(res, event="retry", tool="extract_llm")) == 1
+         and bool(_events(res, event="ingested", sid="lund_global", status="ok")),
+         json.dumps(nl["candidates"], ensure_ascii=False)),
         ("недоступно всё и снимка нет → кандидат с причиной, задача не падает", lund["status"] == "partial"
          and lund["candidates"], json.dumps(lund["candidates"], ensure_ascii=False)[:160]),
         ("старое значение не потеряно и показывается со своей датой проверки",
@@ -244,7 +247,7 @@ def s5_check(res, agent):
         ("до исправления: дедлайна подачи на странице нет («не найдено»)", o["before"]["status"] == "не найдено", str(o["before"])),
         ("повтор той же записи идемпотентен: тот же id, дубля нет", o["write"]["id"] == o["write"]["retry_id"]
          and not o["write"]["retry_created"] and len(user_facts) == 1 and dup_events, str(o["write"])),
-        ("5 контрольных вопросов после исправления его учитывают (M9)", all(c["value"] == "2027-02-01" and c["source"] == "user"
+        ("5 повторных чтений карточки учитывают исправление", all(c["value"] == "2027-02-01" and c["source"] == "user"
          for c in o["control"]), str([c["value"] for c in o["control"]])),
         ("исправление видно в L3", any(r["id"] == "nl_scholarship" for r in o["l3_after_write"]["nearest"]), ""),
         ("отмена возвращает состояние до исправления", o["after_undo"]["value"] is None and o["after_undo"]["status"] == "не найдено", str(o["after_undo"])),

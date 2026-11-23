@@ -42,17 +42,17 @@ CONTRACTS: dict[str, ToolSpec] = {
     "fetch": ToolSpec(
         "fetch", "fetch(page: str) -> Page(text, url, sha256, fetched_at, page)",
         "текст страницы после trafilatura + метаданные снимка",
-        ("not_found", "http_403", "http_5xx", "timeout", "stub_page", "call_limit"),
+        ("not_found", "snapshot_error", "http_403", "http_5xx", "timeout", "stub_page", "call_limit"),
         timeout_s=20, max_calls=8,
         retry="http_5xx/timeout — до 2 ретраев (делает система); http_403/stub_page — без ретрая, запасной путь"),
     "fetch_alt": ToolSpec(
         "fetch_alt", "fetch_alt(page: str) -> Page", "запасной путь получения текста (Tavily Extract); в офлайне — тот же снимок",
-        ("not_found", "http_403", "timeout", "call_limit"), timeout_s=30, max_calls=4,
+        ("not_found", "snapshot_error", "http_403", "timeout", "call_limit"), timeout_s=30, max_calls=4,
         retry="нет: это уже запасной путь; при ошибке — последний снимок L0 с датой или запись в 'кандидаты'"),
     "search": ToolSpec(
         "search", "search(query: str) -> list[Hit(scholarship_id, name, url, score)]",
         "кандидаты официальной страницы по названию (в офлайне — по названиям и синонимам снимков); пустой список = не найдено",
-        ("timeout", "rate_limit", "call_limit"), timeout_s=15, max_calls=15,
+        ("timeout", "rate_limit", "catalog_error", "call_limit"), timeout_s=15, max_calls=15,
         retry="timeout/rate_limit — 1 ретрай; пустая выдача — не ошибка, а ответ «не найдено»"),
     "extract_llm": ToolSpec(
         "extract_llm", "extract_llm(page_text: str, url: str) -> dict (JSON по схеме)",
@@ -164,32 +164,30 @@ class Toolbox:
 
     def fetch(self, page: str) -> Page:
         ctx = self._enter("fetch", page)
-        sid = page.split("/")[0]
-        if self._allowed is not None and sid not in self._allowed:
-            raise ToolError("fetch", "not_found", "id вне видимой части")
-        row = self._manifest.get(page)
-        path = PAGES / page
-        if row is None or not path.exists():
-            raise ToolError("fetch", "not_found", page)
-        t = time.perf_counter()
-        text = path.read_text(encoding="utf-8")
-        self._check_timeout("fetch", t)
+        snapshot = self._read_snapshot("fetch", page)
+        text = snapshot.text
         if len(text) < 200 or (len(text) < 3000 and STUB_MARKERS.search(text)):
             ctx.log("tool_error", tool="fetch", arg=page, code="stub_page")
             raise ToolError("fetch", "stub_page", page)
         ctx.log("tool_ok", tool="fetch", page=page, chars=len(text))
-        return Page(page, row["url"], text, hashlib.sha256(text.encode("utf-8")).hexdigest(), row["fetched_at"])
-
+        return snapshot
 
     def fetch_alt(self, page: str) -> Page:
         self._enter("fetch_alt", page)
+        return self._read_snapshot("fetch_alt", page)
+
+    def _read_snapshot(self, tool: str, page: str) -> Page:
         row = self._manifest.get(page)
-        if (self._allowed is not None and page.split("/")[0] not in self._allowed
-                or row is None or not (PAGES / page).exists()):
-            raise ToolError("fetch_alt", "not_found", page)
+        if row is None or (self._allowed is not None and page.split("/")[0] not in self._allowed):
+            raise ToolError(tool, "not_found", page)
         started = time.perf_counter()
-        text = (PAGES / page).read_text(encoding="utf-8")
-        self._check_timeout("fetch_alt", started)
+        try:
+            text = (PAGES / page).read_text(encoding="utf-8")
+        except FileNotFoundError as exc:
+            raise ToolError(tool, "not_found", page) from exc
+        except (OSError, UnicodeError) as exc:
+            raise ToolError(tool, "snapshot_error", type(exc).__name__) from exc
+        self._check_timeout(tool, started)
         return Page(page, row["url"], text, hashlib.sha256(text.encode("utf-8")).hexdigest(), row["fetched_at"])
 
     def search(self, query: str) -> list[dict]:
@@ -199,7 +197,11 @@ class Toolbox:
         ctx = self._enter("search", query)
         q = set(re.findall(r"[a-z0-9]+", query.lower())) - {"scholarship", "scholarships", "the", "of", "for", "programme", "program"}
         hits = []
-        for sid, names in _names().items():
+        try:
+            catalog = _names()
+        except (OSError, ValueError, csv.Error, KeyError) as exc:
+            raise ToolError("search", "catalog_error", type(exc).__name__) from exc
+        for sid, names in catalog.items():
             if self._allowed is not None and sid not in self._allowed:
                 continue
             best = max(len(q & set(re.findall(r"[a-z0-9]+", n.lower()))) / max(1, len(q)) for n in names)
@@ -220,15 +222,16 @@ def _names() -> dict[str, list[str]]:
     global _NAMES
     if _NAMES is None:
         import json
-        _NAMES = {}
+        names = {}
         with open(ROOT / "eval" / "gt" / "reference_list.csv", encoding="utf-8-sig") as f:
             for r in csv.DictReader(f):
-                _NAMES.setdefault(r["id"], []).append(r["name"])
+                names.setdefault(r["id"], []).append(r["name"])
         dup = ROOT / "eval" / "gt" / "duplicates.jsonl"
         for line in dup.read_text(encoding="utf-8").splitlines() if dup.exists() else []:
             d = json.loads(line)
             if d.get("same") and len(d.get("scholarship_ids", [])) == 1:
-                _NAMES.setdefault(d["scholarship_ids"][0], []).extend([d["name_a"], d["name_b"]])
+                names.setdefault(d["scholarship_ids"][0], []).extend([d["name_a"], d["name_b"]])
+        _NAMES = names
     return _NAMES
 
 
