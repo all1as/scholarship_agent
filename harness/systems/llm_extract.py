@@ -18,13 +18,17 @@ import time
 from pathlib import Path
 
 from ..core import OK, PARTIAL, Context, Task
+from ..rules import GRANULARITY_RX, amount_outcome, norm_amount, norm_deadline
 from ..tools import CONTRACTS, EVAL_DATE, ROOT, ToolError, norm
 
 DEFAULT_MODEL = "gpt-5.4-mini-2026-03-17"   # модель спайка; версия пиннится датой
 
 # Цены $ за 1M токенов (вход, выход). Сверить со страницей цен провайдера перед прогоном и записать дату проверки.
-# Модели без цены не запускаются: стоимость прогона обязана считаться.
-PRICES: dict[str, tuple[float, float]] = {}
+# Модели без цены не запускаются: стоимость прогона обязана считаться. PRICE_IN/PRICE_OUT в .env — для других моделей.
+PRICES: dict[str, tuple[float, float]] = {
+    # https://developers.openai.com/api/docs/models/gpt-5.4-mini, проверено 23.11.2026
+    "gpt-5.4-mini-2026-03-17": (0.75, 4.50),
+}
 
 QUOTE = {"type": "string", "description": "дословная цитата из текста страницы, подтверждающая значение"}
 SCHEMA = {
@@ -75,7 +79,6 @@ SYSTEM_PROMPT = f"""Ты извлекаешь факты о стипендии �
 USER_PROMPT = "URL: {url}\n\nТекст страницы:\n{text}"
 
 PROMPT_SHA = hashlib.sha256((SYSTEM_PROMPT + USER_PROMPT + json.dumps(SCHEMA, sort_keys=True)).encode()).hexdigest()[:16]
-GRAN_RX = {"day": r"^\d{4}-\d{2}-\d{2}$", "month": r"^\d{4}-\d{2}$", "day_no_year": r"^--\d{2}-\d{2}$"}
 MAX_CHARS = 60000
 
 
@@ -174,6 +177,7 @@ class LLMExtract:
                 if reason:
                     out["rejected"].append({"page": page, "reason": reason, "item": d})
                     continue
+                d = norm_deadline(d)
                 fact = {k: d[k] for k in ("date", "granularity", "cycle", "scope", "scope_detail", "quote")} | prov
                 if d["type"] == "application":
                     key = (d["date"], d["granularity"], d["scope"])
@@ -182,9 +186,9 @@ class LLMExtract:
                         out["application_deadlines"].append(fact)
                 else:
                     out["other_dates"].append(fact | {"type": d["type"]})
-            a = data.get("amount")
+            a = norm_amount(data.get("amount"))
             if a and out["amount"] is None:
-                if quote_in_snapshot(a, ntext) and (a.get("value") is not None or a.get("full_coverage")):
+                if quote_in_snapshot(a, ntext) and amount_outcome(a) != "not_stated":
                     out["amount"] = {**a, "variants": None, **prov}
                 elif a:
                     out["rejected"].append({"page": page, "reason": "amount: цитата не найдена или пусто", "item": a})
@@ -197,7 +201,7 @@ def quote_in_snapshot(fact: dict, ntext: str) -> bool:
 
 
 def _invalid(d: dict, ntext: str) -> str | None:
-    if not re.match(GRAN_RX.get(d.get("granularity"), "^$"), d.get("date", "")):
+    if not re.match(GRANULARITY_RX.get(d.get("granularity"), "^$"), d.get("date", "")):
         return f"формат даты {d.get('date')} не соответствует точности {d.get('granularity')}"
     if d.get("cycle") and not re.fullmatch(r"20\d{2}/\d{2}", d["cycle"]):
         return f"формат цикла {d['cycle']}"

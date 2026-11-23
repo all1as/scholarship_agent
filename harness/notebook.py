@@ -6,7 +6,8 @@
                         Факты не удаляются и не перезаписываются: retract / quarantine / supersede с записью в журнал.
 - L1 `l1_events`     — журнал изменений фактов (след разрешения противоречий и чисток).
 - L2 `l2_cards`      — производное: карточка стипендии, всегда пересчитывается из активных фактов L1.
-- `sessions`         — эпизодическая память: реплики диалога и свёрнутое резюме старых реплик.
+- `sessions`         — эпизодическая память: реплики диалога и свёрнутое резюме старых реплик (в пределах сессии).
+- `user_lists`       — состояние пользователя, переживающее границу сессии: избранное.
 - `extract_cache`    — кэш извлечения: (sha256 страницы, хэш промпта) → JSON; страница не изменилась → модель не вызывается.
 Рабочее состояние задачи (шаги, бюджет, частичный результат) живёт в harness.core.Context и после задачи не хранится.
 """
@@ -18,7 +19,7 @@ import json
 import sqlite3
 from datetime import date, datetime
 
-from .rules import TARGET_CYCLE, cycle_status, resolve_date
+from .rules import TARGET_CYCLE, cycle_status, deadline_outcome, resolve_date
 
 SOURCE_RANK = {"official": 3, "university": 3, "user": 2, "aggregator": 1, "past_snapshot": 0}
 FRESH_DAYS = 14             # факт старше — «устарел» до перепроверки
@@ -39,6 +40,7 @@ CREATE TABLE IF NOT EXISTS l2_cards (scholarship_id TEXT PRIMARY KEY, card TEXT,
 CREATE TABLE IF NOT EXISTS sessions (
   session_id TEXT, turn INTEGER, role TEXT, text TEXT, ts TEXT, PRIMARY KEY (session_id, turn));
 CREATE TABLE IF NOT EXISTS session_summary (session_id TEXT PRIMARY KEY, summary TEXT, upto_turn INTEGER);
+CREATE TABLE IF NOT EXISTS user_lists (user_id TEXT, scholarship_id TEXT, added_at TEXT, PRIMARY KEY (user_id, scholarship_id));
 CREATE TABLE IF NOT EXISTS extract_cache (page_sha TEXT, prompt_sha TEXT, data TEXT, PRIMARY KEY (page_sha, prompt_sha));
 """
 
@@ -220,6 +222,21 @@ class Notebook:
         r = self.db.execute("SELECT summary, upto_turn FROM session_summary WHERE session_id=?", (session_id,)).fetchone()
         return (r["summary"], r["upto_turn"]) if r else ("", 0)
 
+    # ---------- состояние пользователя между сессиями ----------
+    # Граница сессии — новый session_id (в продукте: команда «новый разговор» или 24 ч без реплик).
+    # Через границу переходит состояние пользователя: избранное (user_lists), профиль, исправления в L1.
+    # Не переходят реплики прошлой сессии и рабочее состояние задач.
+    def add_favorite(self, user: str, sid: str) -> bool:
+        cur = self.db.execute("INSERT OR IGNORE INTO user_lists VALUES (?,?,?)", (user, sid, self.clock))
+        return cur.rowcount == 1
+
+    def remove_favorite(self, user: str, sid: str) -> bool:
+        return self.db.execute("DELETE FROM user_lists WHERE user_id=? AND scholarship_id=?", (user, sid)).rowcount == 1
+
+    def favorites(self, user: str) -> list[str]:
+        return [r["scholarship_id"] for r in self.db.execute(
+            "SELECT scholarship_id FROM user_lists WHERE user_id=? ORDER BY added_at, scholarship_id", (user,))]
+
 
 # ---------- политика противоречий ----------
 
@@ -258,7 +275,9 @@ def _resolve_deadlines(facts: list[dict], clock: str) -> dict:
        (ошибка «дата позже реальной» критична, ранняя дата безопаснее), статус «конфликт»;
     5. любое расхождение в выбранном цикле → «конфликт», показываются все значения с источниками."""
     if not facts:
-        return {"working": None, "status": "не найдено", "cycle_status": "not_found", "alternatives": []}
+        # «не указано» — на страницах дедлайна нет (неизвестно); это не «стипендия не найдена» и не «дедлайна не существует»
+        return {"working": None, "status": "не указано", "cycle_status": "not_found", "outcome": "not_stated",
+                "alternatives": []}
     as_label = [{"cycle": f["cycle"]} for f in facts if f["source_type"] in ("official", "university", "user")]
     top_cycle = max((_cycle_rank(f["cycle"]) for f in facts))
     same = [f for f in facts if _cycle_rank(f["cycle"]) == top_cycle]
@@ -286,13 +305,13 @@ def _resolve_deadlines(facts: list[dict], clock: str) -> dict:
         else:
             status = "вероятен"
     return {"working": {"date": best["value"], **_public(best)}, "status": status,
-            "cycle_status": cycle_status(as_label), "urgent": urgent,
+            "cycle_status": cycle_status(as_label), "outcome": deadline_outcome(as_label), "urgent": urgent,
             "alternatives": [_public(f) for f in others]}
 
 
 def _resolve_amount(facts: list[dict], clock: str) -> dict:
     if not facts:
-        return {"working": None, "status": "не найдено", "alternatives": []}
+        return {"working": None, "status": "не указано", "outcome": "not_stated", "alternatives": []}
     facts = sorted(facts, key=lambda f: (_cycle_rank(f["cycle"]), SOURCE_RANK[f["source_type"]], f["checked_at"]), reverse=True)
     best = facts[0]
     same_rank = [f for f in facts[1:] if SOURCE_RANK[f["source_type"]] >= SOURCE_RANK[best["source_type"]]

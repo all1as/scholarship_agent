@@ -15,6 +15,7 @@ from pathlib import Path
 
 from .core import Context
 from .notebook import Notebook
+from .rules import amount_outcome, norm_amount, norm_deadline
 from .systems.llm_extract import PROMPT_SHA, _invalid, quote_in_snapshot
 from .tools import ROOT, Page, ToolError, norm
 
@@ -133,12 +134,13 @@ class NotebookAgent:
                 if _invalid(d, ntext):
                     report["rejected"] += 1
                     continue
+                d = norm_deadline(d)
                 field = "application_deadline" if d["type"] == "application" else f"date_{d['type']}"
                 staged.append(dict(sid=sid, field=field, value=d["date"], source_type=source_type, quote=d["quote"],
                                    page=page, source_url=p.url, checked_at=p.fetched_at, cycle=d["cycle"],
                                    scope=d["scope"], scope_detail=d["scope_detail"]))
-            a = data.get("amount")
-            if a and quote_in_snapshot(a, ntext) and (a.get("value") is not None or a.get("full_coverage")):
+            a = norm_amount(data.get("amount"))
+            if a and quote_in_snapshot(a, ntext) and amount_outcome(a) != "not_stated":
                 staged.append(dict(sid=sid, field="amount", value={k: a[k] for k in ("value", "currency", "period", "full_coverage")},
                                    source_type=source_type, quote=a["quote"], page=page, source_url=p.url,
                                    checked_at=p.fetched_at))
@@ -165,7 +167,8 @@ class NotebookAgent:
             hits = ctx.tools.search(lead)
         if not hits:
             ctx.log("not_found", lead=lead)
-            return {"lead": lead, "status": "не найдено", "records": 0}
+            # «стипендия не найдена» ≠ «дедлайн не указан на странице» (карточка): это разные исходы
+            return {"lead": lead, "status": "стипендия не найдена", "records": 0}
         sid = hits[0]["scholarship_id"]
         rep = self.ingest(ctx, sid)
         return {"lead": lead, "status": rep["status"], "scholarship_id": sid, "records": 1, "report": rep}

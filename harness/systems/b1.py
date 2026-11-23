@@ -12,6 +12,7 @@ from __future__ import annotations
 import re
 
 from ..core import OK, PARTIAL, Context, Task
+from ..rules import norm_currency, norm_period
 from ..tools import ToolError
 
 VERSION = "b1-2026-11-21"
@@ -33,7 +34,6 @@ DATE_PATTERNS = [
 WINDOW = 200
 
 CUR = r"(€|£|\$|EUR|GBP|USD|SEK|CHF|CAD|DKK|NOK|HUF|CZK|PLN)"
-CUR_MAP = {"€": "EUR", "£": "GBP", "$": "USD"}
 AMOUNT = [re.compile(rf"{CUR}\s?(\d[\d,.\s]*\d|\d)", re.I), re.compile(rf"(\d[\d,.\s]*\d|\d)\s?{CUR}", re.I)]
 PERIOD = re.compile(r"per month|a month|monthly|/month|per year|a year|annually|per annum|yearly|/year", re.I)
 FULL = re.compile(r"fully[- ]funded|full scholarship|covers? (?:the )?full tuition", re.I)
@@ -134,9 +134,7 @@ class B1:
                     val = _amount_value(next(g for g in groups if g is not cur))
                     if val is None:
                         continue
-                    per = pm.group(0).lower()
-                    period = "month" if "month" in per else "year"
-                    out["amount"] = {"value": val, "currency": CUR_MAP.get(cur, cur.upper()), "period": period,
+                    out["amount"] = {"value": val, "currency": norm_currency(cur), "period": norm_period(pm.group(0)),
                                      "full_coverage": None, "variants": None,
                                      "quote": _quote(text, lo + m.start(), pm.end()), **prov}
                     break

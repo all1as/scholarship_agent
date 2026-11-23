@@ -1,0 +1,30 @@
+{"fid": "f01", "value_ok": true, "type_ok": true, "cycle_ok": true, "scope_ok": true, "comment": ""}
+{"fid": "f02", "value_ok": true, "type_ok": false, "cycle_ok": true, "scope_ok": false, "comment": "25 марта — срок отбора кандидатов координаторами программ, а дедлайн подачи заявки на стипендию самим кандидатом — 31 марта 2026, и дата единая для всех программ, а не зависящая от программы."}
+{"fid": "f03", "value_ok": true, "type_ok": true, "cycle_ok": true, "scope_ok": true, "comment": ""}
+{"fid": "f04", "value_ok": true, "type_ok": true, "cycle_ok": true, "scope_ok": true, "comment": ""}
+{"fid": "f05", "value_ok": true, "type_ok": true, "cycle_ok": true, "scope_ok": false, "comment": "Дедлайн 13 января 2026 относится только к PhD-программе (у MSc отдельный набор), поэтому область — программа, а не global."}
+{"fid": "f06", "value_ok": true, "type_ok": true, "cycle_ok": true, "scope_ok": true, "comment": ""}
+{"fid": "f07", "value_ok": true, "type_ok": true, "cycle_ok": true, "scope_ok": true, "comment": ""}
+{"fid": "f08", "value_ok": true, "type_ok": false, "cycle_ok": true, "scope_ok": true, "comment": "15 августа 2027 — дедлайн приёма на весенний семестр 2028, который по странице открыт только для отдельных курсов, а не для магистерских программ, к которым привязана стипендия."}
+{"fid": "f09", "value_ok": true, "type_ok": true, "cycle_ok": true, "scope_ok": true, "comment": ""}
+{"fid": "f10", "value_ok": true, "type_ok": true, "cycle_ok": true, "scope_ok": true, "comment": ""}
+{"fid": "f11", "value_ok": true, "type_ok": true, "cycle_ok": true, "scope_ok": true, "comment": ""}
+{"fid": "f12", "value_ok": true, "type_ok": true, "cycle_ok": true, "scope_ok": true, "comment": ""}
+{"fid": "f13", "value_ok": true, "type_ok": true, "cycle_ok": true, "scope_ok": true, "comment": ""}
+{"fid": "f14", "value_ok": true, "type_ok": true, "cycle_ok": true, "scope_ok": true, "comment": ""}
+{"fid": "f15", "value_ok": true, "type_ok": true, "cycle_ok": true, "scope_ok": true, "comment": ""}
+{"fid": "f16", "value_ok": true, "type_ok": true, "cycle_ok": true, "scope_ok": true, "comment": ""}
+{"fid": "f17", "value_ok": true, "type_ok": true, "cycle_ok": true, "scope_ok": true, "comment": ""}
+{"fid": "f18", "value_ok": true, "type_ok": true, "cycle_ok": true, "scope_ok": true, "comment": ""}
+{"fid": "f19", "value_ok": true, "type_ok": true, "cycle_ok": false, "scope_ok": true, "comment": "Хотя шапка страницы говорит о 2026-2027, приём с 1 октября 2026 по 15 февраля 2027, награждение в мае 2027 и упоминание неизвестной суммы на 2027-2028 указывают на цикл 2027/28."}
+{"fid": "f20", "value_ok": true, "type_ok": true, "cycle_ok": true, "scope_ok": true, "comment": ""}
+{"fid": "f21", "value_ok": true, "type_ok": true, "cycle_ok": null, "scope_ok": null, "comment": ""}
+{"fid": "f22", "value_ok": true, "type_ok": true, "cycle_ok": null, "scope_ok": null, "comment": ""}
+{"fid": "f23", "value_ok": true, "type_ok": true, "cycle_ok": null, "scope_ok": null, "comment": ""}
+{"fid": "f24", "value_ok": true, "type_ok": true, "cycle_ok": null, "scope_ok": null, "comment": ""}
+{"fid": "f25", "value_ok": true, "type_ok": true, "cycle_ok": null, "scope_ok": null, "comment": ""}
+{"fid": "f26", "value_ok": true, "type_ok": true, "cycle_ok": null, "scope_ok": null, "comment": ""}
+{"fid": "f27", "value_ok": true, "type_ok": true, "cycle_ok": null, "scope_ok": null, "comment": ""}
+{"fid": "f28", "value_ok": false, "type_ok": false, "cycle_ok": null, "scope_ok": null, "comment": "€2,771 — это сниженная плата за обучение, которую платит сам стипендиат, а не сумма выплаты по стипендии."}
+{"fid": "f29", "value_ok": true, "type_ok": true, "cycle_ok": null, "scope_ok": null, "comment": ""}
+{"fid": "f30", "value_ok": true, "type_ok": true, "cycle_ok": null, "scope_ok": null, "comment": ""}

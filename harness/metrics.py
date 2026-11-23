@@ -6,6 +6,8 @@
   "amount": null | {"value", "currency", "period", "full_coverage", "quote", "page", "source_url", "checked_at"}
 }
 Статус цикла системы всегда пересчитывается здесь же правилом rules.cycle_status — модель его не ставит.
+Предсказание и эталон перед сравнением проходят одну и ту же нормализацию (rules.norm_deadline / norm_amount) —
+ту же, что используют системы. Исходы «цикл неизвестен» и «не указано на странице» отчитываются раздельно.
 """
 
 from __future__ import annotations
@@ -13,7 +15,8 @@ from __future__ import annotations
 import math
 
 from .core import BUDGET, ERROR, PARTIAL, REFUSED
-from .rules import TARGET_CYCLE, cycle_status, resolve_date
+from .rules import (AMOUNT_OUTCOMES, DEADLINE_OUTCOMES, TARGET_CYCLE, amount_outcome, cycle_status,
+                    deadline_outcome, norm_amount, norm_deadline, resolve_date)
 from .tools import PAGES, norm
 
 PROVENANCE_FIELDS = ("quote", "page", "source_url", "checked_at")
@@ -36,13 +39,17 @@ def _later(a: str, b: str) -> bool:
 
 
 def m4(pred: dict, gt: dict) -> dict:
-    p_dl, g_dl = pred.get("application_deadlines") or [], gt["application_deadlines"]
+    p_dl = [norm_deadline(d) for d in pred.get("application_deadlines") or []]
+    g_dl = [norm_deadline(d) for d in gt["application_deadlines"]]
     p_status, g_status = cycle_status(p_dl), gt["cycle_status"]
+    g_outcome = deadline_outcome(g_dl)
     status_ok = p_status == g_status
     set_ok = {_dl_key(d) for d in p_dl} == {_dl_key(d) for d in g_dl}
     danger = None
-    if p_status == "published" and g_status == "not_found":
-        danger = "invented"            # выдуман дедлайн там, где в эталоне его нет
+    if p_status == "published" and g_outcome == "not_stated":
+        danger = "invented"            # выдуман дедлайн там, где на странице его нет
+    elif p_status == "published" and g_outcome == "cycle_unknown":
+        danger = "year_guessed"        # дата есть, но цикл из страницы не следует — система достроила год
     elif p_status == "published" and g_status == "only_past_cycle":
         danger = "past_as_current"     # дата прошлого цикла выдана за текущую
     elif p_status == "published" and g_status == "published":
@@ -50,21 +57,21 @@ def m4(pred: dict, gt: dict) -> dict:
         if p and g and _later(p, g):
             danger = "later_than_real"
     return {"correct": status_ok and set_ok, "status_ok": status_ok, "set_ok": set_ok,
-            "pred_status": p_status, "gt_status": g_status, "danger": danger}
+            "pred_status": p_status, "gt_status": g_status, "gt_outcome": g_outcome,
+            "pred_outcome": deadline_outcome(p_dl), "danger": danger}
 
 
 def m5(pred: dict, gt: dict) -> dict:
-    p, g = pred.get("amount"), gt["amount"]
-    if g is None or (g["value"] is None and not g["full_coverage"]):
-        ok = p is None or (p.get("value") is None and not p.get("full_coverage"))
-        return {"correct": ok, "gt_has_amount": False}
-    if p is None:
-        return {"correct": False, "gt_has_amount": True}
-    if g["value"] is None:   # только признак полного покрытия
-        return {"correct": bool(p.get("full_coverage")), "gt_has_amount": True}
-    ok = (p.get("value") is not None and math.isclose(float(p["value"]), float(g["value"]), rel_tol=0.01)
-          and p.get("currency") == g["currency"] and p.get("period") == g["period"])
-    return {"correct": ok, "gt_has_amount": True}
+    p, g = norm_amount(pred.get("amount")), norm_amount(gt["amount"])
+    g_outcome, p_outcome = amount_outcome(g), amount_outcome(p)
+    base = {"gt_has_amount": g_outcome != "not_stated", "gt_outcome": g_outcome, "pred_outcome": p_outcome}
+    if g_outcome == "not_stated":
+        return {"correct": p_outcome == "not_stated", **base}
+    if g_outcome == "full_coverage_only":
+        return {"correct": p is not None and p["full_coverage"] is True, **base}
+    ok = (p is not None and p["value"] is not None and math.isclose(p["value"], g["value"], rel_tol=0.01)
+          and p["currency"] == g["currency"] and p["period"] == g["period"])
+    return {"correct": ok, **base}
 
 
 def _facts(pred: dict) -> list[dict]:
@@ -134,8 +141,12 @@ def score_extract(results: list, labels: dict[str, dict]) -> tuple[list[dict], d
         "M4": round(k4 / n, 3), "M4_ci95": wilson(k4, n),
         "M4_status_acc": round(sum(x["m4"]["status_ok"] for x in per_task) / n, 3),
         "M4_set_acc": round(sum(x["m4"]["set_ok"] for x in per_task) / n, 3),
-        "M4_with_dates": _share([x["m4"]["correct"] for x in per_task if x["m4"]["gt_status"] != "not_found"]),
-        "M4_no_dates": _share([x["m4"]["correct"] for x in per_task if x["m4"]["gt_status"] == "not_found"]),
+        "M4_with_dates": _share([x["m4"]["correct"] for x in per_task if x["m4"]["gt_outcome"] != "not_stated"]),
+        "M4_no_dates": _share([x["m4"]["correct"] for x in per_task if x["m4"]["gt_outcome"] == "not_stated"]),
+        "M4_by_outcome": {o: _share([x["m4"]["correct"] for x in per_task if x["m4"]["gt_outcome"] == o])
+                          for o in DEADLINE_OUTCOMES},
+        "M5_by_outcome": {o: _share([x["m5"]["correct"] for x in per_task if x["m5"]["gt_outcome"] == o])
+                          for o in AMOUNT_OUTCOMES},
         "M4_dangerous": sum(dangers.values()), "M4_dangerous_per_100": round(100 * sum(dangers.values()) / n, 1),
         "M4_dangerous_by_type": dangers,
         "M5": round(k5 / n, 3), "M5_ci95": wilson(k5, n),

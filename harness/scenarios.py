@@ -72,8 +72,9 @@ def s1_check(res, agent):
         ("область дедлайна — страна", w and w["scope"] == "country", str(w and w["scope_detail"])),
         ("дата оффера 8 July 2027 не выдана за дедлайн подачи", any(f["value"] == "2027-07-08" for f in offer)
          and w["date"] != "2027-07-08", f"offer facts: {[f['value'] for f in offer]}"),
-        ("несуществующая стипендия: «не найдено», 0 записей, без загрузок", o["missing"]["records"] == 0
-         and "fetch" not in searches_after_missing, o["missing"]["status"]),
+        ("несуществующая стипендия: «стипендия не найдена», 0 записей, без загрузок", o["missing"]["records"] == 0
+         and o["missing"]["status"] == "стипендия не найдена" and "fetch" not in searches_after_missing,
+         o["missing"]["status"]),
     ]
 
 
@@ -223,6 +224,11 @@ def s5_run(agent, ctx):
     out["write"] = {"id": fid, "created": created, "retry_id": fid2, "retry_created": created2}
     out["control"] = [agent.answer_fact("nl_scholarship") for _ in range(5)]
     out["l3_after_write"] = agent.nb.summary_l3()
+    # граница сессии (q091): в сессии s1 — избранное, в новой сессии s2 реплик s1 нет, избранное и исправление на месте
+    agent.nb.add_turn("s1", "user", "Сохрани в избранное NL Scholarship.")
+    agent.nb.add_favorite("u1", "nl_scholarship")
+    out["new_session"] = {"turns_s2": agent.nb.turns("s2"), "favorites": agent.nb.favorites("u1"),
+                          "card": agent.answer_fact("nl_scholarship")}
     agent.nb.undo_correction(fid)
     out["after_undo"] = agent.answer_fact("nl_scholarship")
     errs = []
@@ -244,13 +250,17 @@ def s5_check(res, agent):
     user_facts = [f for f in user_facts if f["source_type"] == "user"]
     dup_events = [e for e in agent.nb.events() if e["action"] == "duplicate_ignored"]
     return [
-        ("до исправления: дедлайна подачи на странице нет («не найдено»)", o["before"]["status"] == "не найдено", str(o["before"])),
+        ("до исправления: дедлайна подачи на странице нет («не указано», а не «не существует»)",
+         o["before"]["status"] == "не указано", str(o["before"])),
         ("повтор той же записи идемпотентен: тот же id, дубля нет", o["write"]["id"] == o["write"]["retry_id"]
          and not o["write"]["retry_created"] and len(user_facts) == 1 and dup_events, str(o["write"])),
         ("5 повторных чтений карточки учитывают исправление", all(c["value"] == "2027-02-01" and c["source"] == "user"
          for c in o["control"]), str([c["value"] for c in o["control"]])),
         ("исправление видно в L3", any(r["id"] == "nl_scholarship" for r in o["l3_after_write"]["nearest"]), ""),
-        ("отмена возвращает состояние до исправления", o["after_undo"]["value"] is None and o["after_undo"]["status"] == "не найдено", str(o["after_undo"])),
+        ("новая сессия: реплик прошлой нет, избранное и исправление восстановлены",
+         o["new_session"]["turns_s2"] == [] and o["new_session"]["favorites"] == ["nl_scholarship"]
+         and o["new_session"]["card"]["value"] == "2027-02-01", str(o["new_session"]["favorites"])),
+        ("отмена возвращает состояние до исправления", o["after_undo"]["value"] is None and o["after_undo"]["status"] == "не указано", str(o["after_undo"])),
         ("повторная отмена / отмена чужого факта / несуществующего — типизированные ошибки, состояние не меняется",
          o["undo_errors"] == ["already_retracted", "not_a_correction", "not_found"], str(o["undo_errors"])),
         ("след сохранён: исправление в L1 со статусом retracted", user_facts[0]["status"] == "retracted", user_facts[0]["status"]),
@@ -356,7 +366,7 @@ SCENARIOS = [
              s3_run, s3_check, budget={"max_steps": 10, "max_tool_calls": 200, "max_cost_usd": 1.0, "max_seconds": 120}),
     Scenario("S4", "Eiffel: агрегатор, прошлогодний снимок, пользователь меняет показания", "противоречие и изменение вводных",
              s4_run, s4_check, overrides=S4_OVERRIDES),
-    Scenario("S5", "Исправление пользователя: повтор записи, 5 контрольных вопросов, отмена", "повтор и отмена записи",
+    Scenario("S5", "Исправление пользователя: повтор записи, 5 повторных чтений, новая сессия, отмена", "повтор и отмена записи",
              s5_run, s5_check),
     Scenario("S6", "Отравление памяти: неверный факт в L1, через извлечение и через пользователя", "тест на отравление памяти",
              s6_run, s6_check),
