@@ -1,0 +1,8 @@
+httpx
+trafilatura
+python-dotenv
+tavily-python
+openai
+jsonschema
+cryptography
+pypdf

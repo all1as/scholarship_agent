@@ -1,0 +1,4 @@
+Share:
+By clicking on the "Show" button, usage data may be transmitted to the respective media provider (Youtube, Soundcloud, Flickr) and cookies may be set.
+By clicking on "Show maps", usage data may be transmitted to the media provider MapBox.
+By clicking on "Show iframe", usage data may be transmitted to an external media provider.

@@ -1,0 +1,21 @@
+MSc Program
+The 2026 call is closed.
+Please note:
+- relAI MSc students have to be inscribed in an MSc program in computer science, mathematics, engineering, natural sciences or other data science/machine learning/AI related disciplines at TUM or LMU, so make sure that you apply to that in parallel to the application to relAI. Most master application deadlines are end of May. Offers will be made subject to acceptance into such a program. So no need to worry if you are not accepted before submitting your relAI application.
+- The funding is limited to the remaining duration of the recipient’s studies according to the model study plan (“Regelstudienzeit”). Shorter scholarship durations can be determined by the Selection Committee based on available budget and the specific study situation and progress of the candidate. If the prerequisites for receiving a scholarship are no longer satisfied, then the scholarship will end immediately.
+PhD Program
+Our 2025 call for PhD positions funded by relAI closed on January 13th, 2026 (23:59 AoE). Successful candidates have been informed. Please expect the next call to open in December 2026.
+The application process for associated PhDs, whose salary is funded by third parties, is regularly announced relAI internally.
+Prerequisites
+In general we accept students based on the following prerequisites:
+- Excellent bachelor's degree / master's degree (for application for MSc / PhD respectively) in computer science, mathematics, engineering, natural sciences or other data science/machine learning/AI related disciplines
+- a genuine interest to work on a topic of reliableAI, covering aspects such as safety, security, privacy and responsibility in one of relAI’s research areas Mathematical & Algorithmic foundations, Learning & Instruction, Algorithmic Decision-Making, Medicine & Healthcare or Robotics & Interacting Systems
+You need the following documents/information for starting the application process:
+- Your CV
+- Copies of your relevant diplomas and transcripts (in case a degree is still ongoing you can upload transcripts to prove you will have finished by the time you join relAI)
+- Short Motivation (max 1500 characters), also highlighting previous experience in the field,
+- PhD program only:
+  - Choice of two preferred supervisors who are relAI Fellows, along with a short explanation (max 1000 characters) for each why the respective supervisor would be a good fit (illustrate with a thesis topic you would like to pursue if you have one in mind)
+  - Names and addresses of two researchers who consent to be contacted for recommendation letters
+- Proof of English language proficiency: level C1 or equivalent 
+(also acceptable: proof that University degree was taught mainly in English)

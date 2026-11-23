@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Scholarship label (eval v1, part A2)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "name", "funder", "type", "levels", "fields", "in_profile", "cycle_status",
+               "application_deadlines", "other_dates", "amount", "covers", "open_to_ru", "traps",
+               "notes", "annotator", "labeled_at"],
+  "$defs": {
+    "quote": {"type": "string", "minLength": 8},
+    "page": {"type": "string", "pattern": "^[a-z0-9_]+/[0-9]+\\.txt$"},
+    "date_value": {"type": "string", "pattern": "^(\\d{4}-\\d{2}-\\d{2}|\\d{4}-\\d{2}|--\\d{2}-\\d{2})$"},
+    "granularity": {"enum": ["day", "month", "day_no_year"]},
+    "cycle": {"type": ["string", "null"], "pattern": "^20\\d{2}/\\d{2}$"},
+    "deadline": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["date", "granularity", "cycle", "scope", "scope_detail", "quote", "page"],
+      "properties": {
+        "date": {"$ref": "#/$defs/date_value"},
+        "granularity": {"$ref": "#/$defs/granularity"},
+        "cycle": {"$ref": "#/$defs/cycle"},
+        "scope": {"enum": ["global", "country", "university", "program", "applicant_group"]},
+        "scope_detail": {"type": ["string", "null"]},
+        "quote": {"$ref": "#/$defs/quote"},
+        "page": {"$ref": "#/$defs/page"}
+      }
+    },
+    "other_date": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["date", "granularity", "cycle", "type", "quote", "page"],
+      "properties": {
+        "date": {"$ref": "#/$defs/date_value"},
+        "granularity": {"$ref": "#/$defs/granularity"},
+        "cycle": {"$ref": "#/$defs/cycle"},
+        "type": {"enum": ["opening", "offer_or_documents", "results", "other"]},
+        "quote": {"$ref": "#/$defs/quote"},
+        "page": {"$ref": "#/$defs/page"}
+      }
+    }
+  },
+  "properties": {
+    "id": {"type": "string", "pattern": "^[a-z0-9_]+$"},
+    "name": {"type": "string"},
+    "funder": {"type": "string"},
+    "type": {"enum": ["government", "university", "foundation", "erasmus_mundus", "other"]},
+    "levels": {
+      "type": "object", "additionalProperties": false, "required": ["value", "quote", "page"],
+      "properties": {
+        "value": {"type": "array", "items": {"enum": ["bachelor", "master", "phd", "postdoc", "other"]}},
+        "quote": {"anyOf": [{"$ref": "#/$defs/quote"}, {"type": "null"}]},
+        "page": {"anyOf": [{"$ref": "#/$defs/page"}, {"type": "null"}]}
+      }
+    },
+    "fields": {
+      "type": "object", "additionalProperties": false, "required": ["value", "quote", "page"],
+      "properties": {
+        "value": {"type": "string"},
+        "quote": {"anyOf": [{"$ref": "#/$defs/quote"}, {"type": "null"}]},
+        "page": {"anyOf": [{"$ref": "#/$defs/page"}, {"type": "null"}]}
+      }
+    },
+    "in_profile": {"type": "boolean"},
+    "cycle_status": {"enum": ["published", "only_past_cycle", "not_found"]},
+    "application_deadlines": {"type": "array", "items": {"$ref": "#/$defs/deadline"}},
+    "other_dates": {"type": "array", "items": {"$ref": "#/$defs/other_date"}},
+    "amount": {
+      "anyOf": [
+        {"type": "null"},
+        {
+          "type": "object", "additionalProperties": false,
+          "required": ["value", "currency", "period", "full_coverage", "variants", "quote", "page"],
+          "properties": {
+            "value": {"type": ["number", "null"]},
+            "currency": {"type": ["string", "null"], "pattern": "^[A-Z]{3}$"},
+            "period": {"enum": ["month", "semester", "year", "total", null]},
+            "full_coverage": {"type": ["boolean", "null"]},
+            "variants": {"type": ["string", "null"]},
+            "quote": {"$ref": "#/$defs/quote"},
+            "page": {"$ref": "#/$defs/page"}
+          }
+        }
+      ]
+    },
+    "covers": {
+      "type": "object", "additionalProperties": false,
+      "required": ["tuition", "living", "travel", "quote", "page"],
+      "properties": {
+        "tuition": {"type": ["boolean", "null"]},
+        "living": {"type": ["boolean", "null"]},
+        "travel": {"type": ["boolean", "null"]},
+        "quote": {"anyOf": [{"$ref": "#/$defs/quote"}, {"type": "null"}]},
+        "page": {"anyOf": [{"$ref": "#/$defs/page"}, {"type": "null"}]}
+      }
+    },
+    "open_to_ru": {
+      "type": "object", "additionalProperties": false, "required": ["value", "quote", "page"],
+      "properties": {
+        "value": {"enum": ["yes", "no", "unknown"]},
+        "quote": {"anyOf": [{"$ref": "#/$defs/quote"}, {"type": "null"}]},
+        "page": {"anyOf": [{"$ref": "#/$defs/page"}, {"type": "null"}]}
+      }
+    },
+    "traps": {
+      "type": "array",
+      "items": {"enum": ["past_cycle_only", "country_scoped", "university_scoped", "program_scoped", "month_only",
+                         "no_year", "multiple_date_types", "amount_ambiguous", "closed_to_ru",
+                         "out_of_profile_level", "deadline_on_other_page", "aggregator_conflict"]}
+    },
+    "notes": {"type": "string"},
+    "annotator": {"enum": ["A", "B"]},
+    "labeled_at": {"type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$"}
+  }
+}
