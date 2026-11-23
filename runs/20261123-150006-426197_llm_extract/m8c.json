@@ -1,0 +1,98 @@
+{
+  "n": 30,
+  "supported": 25,
+  "M8c": 0.833,
+  "by_field": {
+    "value_ok": "29/30",
+    "type_ok": "27/30",
+    "cycle_ok": "19/20",
+    "scope_ok": "18/20"
+  },
+  "failures": [
+    {
+      "fid": "f02",
+      "value_ok": true,
+      "type_ok": false,
+      "cycle_ok": true,
+      "scope_ok": false,
+      "comment": "25 марта — срок отбора кандидатов координаторами программ, а дедлайн подачи заявки на стипендию самим кандидатом — 31 марта 2026, и дата единая для всех программ, а не зависящая от программы.",
+      "fact": {
+        "scholarship_id": "paris_saclay_ims",
+        "kind": "deadline",
+        "date": "2026-03-25",
+        "value": null,
+        "scope": "program",
+        "cycle": null,
+        "quote": "Candidate selection deadline by master’s program coordinators: Wednesday 25 March 2026, 11:59pm"
+      }
+    },
+    {
+      "fid": "f05",
+      "value_ok": true,
+      "type_ok": true,
+      "cycle_ok": true,
+      "scope_ok": false,
+      "comment": "Дедлайн 13 января 2026 относится только к PhD-программе (у MSc отдельный набор), поэтому область — программа, а не global.",
+      "fact": {
+        "scholarship_id": "zuse_relai",
+        "kind": "deadline",
+        "date": "2026-01-13",
+        "value": null,
+        "scope": "global",
+        "cycle": null,
+        "quote": "Our 2025 call for PhD positions funded by relAI closed on January 13th, 2026 (23:59 AoE)."
+      }
+    },
+    {
+      "fid": "f08",
+      "value_ok": true,
+      "type_ok": false,
+      "cycle_ok": true,
+      "scope_ok": true,
+      "comment": "15 августа 2027 — дедлайн приёма на весенний семестр 2028, который по странице открыт только для отдельных курсов, а не для магистерских программ, к которым привязана стипендия.",
+      "fact": {
+        "scholarship_id": "umea_scholarship",
+        "kind": "deadline",
+        "date": "2027-08-15",
+        "value": null,
+        "scope": "global",
+        "cycle": "2027/28",
+        "quote": "- Application deadline: 15 August 2027"
+      }
+    },
+    {
+      "fid": "f19",
+      "value_ok": true,
+      "type_ok": true,
+      "cycle_ok": false,
+      "scope_ok": true,
+      "comment": "Хотя шапка страницы говорит о 2026-2027, приём с 1 октября 2026 по 15 февраля 2027, награждение в мае 2027 и упоминание неизвестной суммы на 2027-2028 указывают на цикл 2027/28.",
+      "fact": {
+        "scholarship_id": "kuleuven_science",
+        "kind": "deadline",
+        "date": "2027-02-15",
+        "value": null,
+        "scope": "global",
+        "cycle": "2026/27",
+        "quote": "Application deadline | 15 February 2027 |"
+      }
+    },
+    {
+      "fid": "f28",
+      "value_ok": false,
+      "type_ok": false,
+      "cycle_ok": null,
+      "scope_ok": null,
+      "comment": "€2,771 — это сниженная плата за обучение, которую платит сам стипендиат, а не сумма выплаты по стипендии.",
+      "fact": {
+        "scholarship_id": "radboud_scholarship",
+        "kind": "amount",
+        "date": null,
+        "value": 2771.0,
+        "scope": null,
+        "cycle": null,
+        "quote": "A Radboud Scholarship will reduce your tuition fee to €2,771.- (amount to be confirmed)."
+      }
+    }
+  ]
+}

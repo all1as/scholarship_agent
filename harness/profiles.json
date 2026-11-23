@@ -1,0 +1,7 @@
+{
+  "P1": {"citizenship": "RU", "degree": "BSc Applied Mathematics and Computer Science", "graduation": 2027,
+         "gpa": "8/10", "language": "IELTS 7.0", "target": ["CS", "Data Science", "ML"],
+         "regions": ["EU", "UK", "Switzerland"]},
+  "P2": {"citizenship": "RU", "degree": "BEng", "graduation": 2026, "gpa": "4.5/5", "language": "TOEFL 100",
+         "target": ["Engineering", "Embedded"], "regions": ["USA", "Canada", "Germany", "Scandinavia"]}
+}

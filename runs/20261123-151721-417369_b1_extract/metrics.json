@@ -1,0 +1,41 @@
+{
+  "n": 70,
+  "M4": 0.514,
+  "M4_ci95": [
+    0.4,
+    0.628
+  ],
+  "M4_status_acc": 0.743,
+  "M4_set_acc": 0.543,
+  "M4_with_dates": "10/38",
+  "M4_no_dates": "26/32",
+  "M4_by_outcome": {
+    "published": "6/22",
+    "only_past_cycle": "3/7",
+    "cycle_unknown": "1/9",
+    "not_stated": "26/32"
+  },
+  "M5_by_outcome": {
+    "stated": "4/33",
+    "full_coverage_only": "2/3",
+    "not_stated": "28/34"
+  },
+  "M4_dangerous": 2,
+  "M4_dangerous_per_100": 2.9,
+  "M4_dangerous_by_type": {
+    "invented": 1,
+    "later_than_real": 1
+  },
+  "M5": 0.486,
+  "M5_ci95": [
+    0.372,
+    0.6
+  ],
+  "M5_on_stated": 0.167,
+  "M6": 1.0,
+  "M8a": 0.0,
+  "facts": 57,
+  "status_counts": {
+    "ok": 70
+  }
+}
