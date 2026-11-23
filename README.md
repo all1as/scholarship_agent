@@ -22,7 +22,7 @@ python -m harness compare runs/<id1> runs/<id2>       # метрики, стои
 python -m unittest discover tests
 ```
 
-Результаты КТ3: [baseline B1](runs/20261123-124650-424215_b1_extract), [сценарии S1–S7](runs/20261123-124651-076585_agent-replay_scenarios), [ADR-001](adr/001-notebook-levels.md).
+Результаты КТ3: [baseline B1](runs/20261123-125922-295786_b1_extract), [сценарии S1–S7](runs/20261123-125922-770224_agent-replay_scenarios), [ADR-001](adr/001-notebook-levels.md).
 
 Baseline и LLM сравниваются на одинаковых задачах A2. Сценарии проверяют оркестрацию и память на фиксированных ответах экстрактора. Живой LLM-прогон оценивает извлечение отдельно.
 
