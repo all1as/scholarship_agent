@@ -1,0 +1,3 @@
+run_id,system,model,suite,eval,commit,cost_usd,wall_s,metrics
+20261123-124650-424215_b1_extract,b1,,extract,v1,bfff6b72,0.0,0.2,"{""n"": 70, ""M4"": 0.514, ""M4_status_acc"": 0.743, ""M4_set_acc"": 0.543, ""M4_with_dates"": ""9/29"", ""M4_no_dates"": ""27/41"", ""M4_dangerous"": 2, ""M4_dangerous_per_100"": 2.9, ""M5"": 0.486, ""M5_on_stated"": 0.167, ""M6"": 1.0, ""M8a"": 0.0, ""facts"": 57}"
+20261123-124651-076585_agent-replay_scenarios,agent-replay,,scenarios,v1,bfff6b72,0.0,0.08,"{""scenarios"": 7, ""passed"": 7, ""checks"": 42, ""checks_passed"": 42}"
